@@ -1,0 +1,412 @@
+/* ================= COLORS ================= */
+
+:root {
+    --light: #C6B49A;
+    --secondary: #A68C7A;
+    --accent: #8B6E5E;
+    --primary: #6F4E3D;
+    --dark: #3E2E23;
+
+    --background: #F8F5F0;
+    --white: #FFFFFF;
+    --text: #3E2E23;
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+
+    padding: 15px 5%;
+
+    background-color: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    box-shadow: 0 2px 10px rgba(62, 46, 35, 0.12);
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.nav-links a {
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+
+/* ================= NAV BUTTONS ================= */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.login-btn,
+.register-btn {
+    text-decoration: none;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.login-btn {
+    color: var(--primary);
+
+    border: 1px solid var(--primary);
+}
+
+
+.register-btn {
+    color: var(--white);
+
+    background-color: var(--primary);
+}
+
+
+.login-btn:hover,
+.register-btn:hover {
+    opacity: 0.8;
+}
+
+
+/* ================= THEME BUTTON ================= */
+
+.theme-btn {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: var(--light);
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.menu-btn {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: var(--light);
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+/* ================= MAIN ================= */
+
+.main-content {
+    flex: 1;
+
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+
+.main-content h1 {
+    color: var(--primary);
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.main-content p {
+    color: var(--accent);
+
+    font-size: 18px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    width: 100%;
+
+    background-color: var(--dark);
+
+    color: var(--white);
+
+    margin-top: auto;
+}
+
+
+.footer-container {
+    padding: 45px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.footer-section {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-width: 350px;
+}
+
+
+.footer-section h2 {
+    color: var(--light);
+
+    margin-bottom: 5px;
+}
+
+
+.footer-section h3 {
+    color: var(--light);
+
+    margin-bottom: 5px;
+}
+
+
+.footer-section p {
+    color: #DDDDDD;
+
+    line-height: 1.6;
+}
+
+
+.footer-section a {
+    color: #DDDDDD;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.footer-section a:hover {
+    color: var(--light);
+}
+
+
+/* ================= FOOTER BOTTOM ================= */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    padding: 18px 5%;
+
+    text-align: center;
+
+    color: #CCCCCC;
+
+    font-size: 14px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode {
+    --background: #2B211B;
+
+    --white: #3E2E23;
+
+    --text: #F8F5F0;
+}
+
+
+body.dark-mode .nav-links a {
+    color: #F8F5F0;
+}
+
+
+body.dark-mode .main-content h1 {
+    color: var(--light);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+
+    .menu-btn {
+        display: block;
+    }
+
+
+    .nav-links {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        padding: 20px 0;
+    }
+
+
+    .nav-links.active {
+        display: flex;
+    }
+
+
+    .footer-container {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+
+    .logo {
+        font-size: 19px;
+    }
+
+
+    .login-btn,
+    .register-btn {
+        padding: 8px 10px;
+    }
+
+
+    .main-content {
+        padding: 80px 20px;
+    }
+
+
+    .main-content h1 {
+        font-size: 30px;
+    }
+
+
+    .main-content p {
+        font-size: 16px;
+    }
+
+
+    .footer-container {
+        flex-direction: column;
+
+        padding: 35px 20px;
+    }
+
+
+    .footer-bottom {
+        padding: 15px 20px;
+    }
+
+}

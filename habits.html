@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yom-B-Yom</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts Start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <!-- Google Fonts End -->
+
+    <!-- CSS Files Start -->
+    <link rel="stylesheet" href="./css/navbar habits.css">
+    <link rel="stylesheet" href="./css/board habits.css">
+    <link rel="stylesheet" href="./css/habits.css">
+    <link rel="stylesheet" href="./css/footer habits.css">
+    <!-- CSS Files End -->
+
+</head>
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <div class="container">
+
+    <!-- Navbar Left Start -->
+    <a class="navbar-brand logo-title" href="habits.html">
+    <span class="logo-text">YOM-B-YOM</span>
+    </a>
+    <!-- Navbar Left End -->
+
+    <!-- Mobile Toggle Button Start -->
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <i class="bi bi-list fs-2 text-white"></i>
+    </button>
+    <!-- Mobile Toggle Button End -->
+
+    <!-- Navbar Middle Start -->
+    <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+   
+    <li class="nav-item">
+    <a class="nav-link active" href="index.html">Home</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="#board-section">Whiteboard</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="#habits-section">Habits Tracker</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="#footer-section">Contact</a>
+    </li>
+    </ul>
+    <!-- Navbar Middle End -->
+
+    <!-- Navbar Right Start -->
+    <div class="d-flex">
+    <a href="#board-section" class="btn btn-brown-primary">My Workspace</a>
+    </div>
+    <!-- Navbar Right End -->
+
+    </div>
+    </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+    <!-- Main Container Start -->
+    <main class="container py-4">
+
+
+
+    <!-- Section 1: Whiteboard Section Start -->
+    <section id="board-section" class="board-section-container mb-5">
+    
+    <!-- Whiteboard Inner Panel Start -->
+    <div class="whiteboard-panel">
+
+    <!-- Board Header Start -->
+    <div class="board-header-bar">
+    <div>
+    <h2 class="board-title-text">Daily Whiteboard</h2>
+    <p class="board-subtitle-text mb-0">Type your notes inside the boxes below. Everything is saved automatically.</p>
+    </div>
+    
+    <button class="btn btn-board-save" id="saveAllNotesBtn">Save Notes</button>
+    </div>
+    <!-- Board Header End -->
+
+
+
+    <!-- Notes Row Start -->
+    <div class="row g-3 g-md-4">
+
+    <!-- Box 1 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Bootstrap Grid Practice" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Review Bootstrap grid system with container, row, and col-md-4 classes for responsive layouts.</textarea>
+    </div>
+    </div>
+    <!-- Box 1 End -->
+
+
+    <!-- Box 2 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Gym Workout" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Upper body workout at 6:00 PM. Drink plenty of water and do 10 minutes of cardio warmup.</textarea>
+    </div>
+    </div>
+    <!-- Box 2 End -->
+
+
+    <!-- Box 3 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Daily Motivation" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Small daily progress creates huge results over time. Keep learning step by step every single day.</textarea>
+    </div>
+    </div>
+    <!-- Box 3 End -->
+
+
+    <!-- Box 4 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Budget Review" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Check monthly expenses and organize subscription bills inside the dashboard.</textarea>
+    </div>
+    </div>
+    <!-- Box 4 End -->
+
+
+    <!-- Box 5 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Sleep Schedule" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Turn off screens at 11:00 PM and prepare tomorrow's task list for a productive morning.</textarea>
+    </div>
+    </div>
+    <!-- Box 5 End -->
+
+
+    <!-- Box 6 Start -->
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="note-square-box">
+    <input type="text" class="square-title-input" value="Web Design Tasks" placeholder="Note Title...">
+    <textarea class="square-textarea" rows="5" placeholder="Write your note here...">Keep colors in warm brown shades and make sure HTML and CSS are clear and simple to understand.</textarea>
+    </div>
+    </div>
+    <!-- Box 6 End -->
+
+    </div>
+    <!-- Notes Row End -->
+
+    </div>
+    <!-- Whiteboard Inner Panel End -->
+
+    </section>
+    <!-- Section 1: Whiteboard Section End -->
+
+
+
+
+
+    <!-- Section 2: Habits Section Start -->
+    <section id="habits-section" class="habits-wrapper">
+    
+    <!-- Habits Progress Header Start -->
+    <div class="habit-progress-card p-3 mb-4 rounded-4 shadow-sm bg-white border">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+    <div>
+    <h4 class="mb-0 text-brown-dark">Today's Habits Progress</h4>
+    <small class="text-brown" id="habitsStatusText">2 of 3 habits completed today</small>
+    </div>
+    <span class="badge bg-brown-pill" id="habitsPercentBadge">66% Done</span>
+    </div>
+
+    <!-- Progress Bar Start -->
+    <div class="progress" style="height: 12px; border-radius: 10px;">
+    <div class="progress-bar progress-bar-brown" id="habitsProgressBar" style="width: 66%; border-radius: 10px;"></div>
+    </div>
+    <!-- Progress Bar End -->
+
+    </div>
+    <!-- Habits Progress Header End -->
+
+
+
+    <!-- Habits Title Start -->
+    <div class="mb-4">
+    <h3 class="text-brown-dark mb-1">3 Daily Habits</h3>
+    <p class="text-brown mb-0">Click any day circle to check it off, or click the button to mark today completed.</p>
+    </div>
+    <!-- Habits Title End -->
+
+
+
+    <!-- Habits Cards Row Start -->
+    <div class="row g-4">
+
+    <!-- Habit 1 Start -->
+    <div class="col-12 col-lg-4">
+    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+    
+    <div>
+    <!-- Title & Details Start -->
+    <input type="text" class="habit-title-input" value="Coding & Problem Solving" placeholder="Habit Title...">
+    <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Web development, practice coding challenges, and building daily projects.</textarea>
+    <!-- Title & Details End -->
+
+    <!-- Weekly Days Start -->
+    <label class="text-brown mb-2 d-block">Weekly Schedule:</label>
+    <div class="d-flex justify-content-between gap-1 mb-4">
+    <span class="day-btn active">S</span>
+    <span class="day-btn active">M</span>
+    <span class="day-btn active">T</span>
+    <span class="day-btn active">W</span>
+    <span class="day-btn">T</span>
+    <span class="day-btn">F</span>
+    <span class="day-btn">S</span>
+    </div>
+    <!-- Weekly Days End -->
+    </div>
+
+    <!-- Habit 1 Footer Start -->
+    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+    <span class="text-brown-dark">Streak: 4 Days</span>
+    <button class="btn btn-done active">Done Today</button>    
+    </div>
+    <!-- Habit 1 Footer End -->
+
+    </div>
+    </div>
+    <!-- Habit 1 End -->
+
+
+
+    <!-- Habit 2 Start -->
+    <div class="col-12 col-lg-4">
+    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+    
+    <div>
+    <!-- Title & Details Start -->
+    <input type="text" class="habit-title-input" value="Workout & Fitness" placeholder="Habit Title...">
+    <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Gym workouts, cardio running, stretching routines, and staying well hydrated.</textarea>
+    <!-- Title & Details End -->
+
+    <!-- Weekly Days Start -->
+    <label class="text-brown mb-2 d-block">Weekly Schedule:</label>
+    <div class="d-flex justify-content-between gap-1 mb-4">
+    <span class="day-btn active">S</span>
+    <span class="day-btn active">M</span>
+    <span class="day-btn active">T</span>
+    <span class="day-btn">W</span>
+    <span class="day-btn active">T</span>
+    <span class="day-btn">F</span>
+    <span class="day-btn">S</span>
+    </div>
+    <!-- Weekly Days End -->
+    </div>
+
+    <!-- Habit 2 Footer Start -->
+    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+    <span class="text-brown-dark">Streak: 7 Days</span>
+    <button class="btn btn-done active">Done Today</button>
+    </div>
+    <!-- Habit 2 Footer End -->
+
+    </div>
+    </div>
+    <!-- Habit 2 End -->
+
+
+
+    <!-- Habit 3 Start -->
+    <div class="col-12 col-lg-4">
+    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+    
+    <div>
+    <!-- Title & Details Start -->
+    <input type="text" class="habit-title-input" value="Reading Books" placeholder="Habit Title...">
+    <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Read 20-30 pages of mindset, self-improvement, or tech documentation.</textarea>
+    <!-- Title & Details End -->
+
+    <!-- Weekly Days Start -->
+    <label class="text-brown mb-2 d-block">Weekly Schedule:</label>
+    <div class="d-flex justify-content-between gap-1 mb-4">
+    <span class="day-btn active">S</span>
+    <span class="day-btn active">M</span>
+    <span class="day-btn">T</span>
+    <span class="day-btn">W</span>
+    <span class="day-btn">T</span>
+    <span class="day-btn">F</span>
+    <span class="day-btn">S</span>
+    </div>
+    <!-- Weekly Days End -->
+    </div>
+
+    <!-- Habit 3 Footer Start -->
+    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+    <span class="text-brown-dark">Streak: 2 Days</span>
+    <button class="btn btn-done">Mark Done</button>
+    </div>
+    <!-- Habit 3 Footer End -->
+
+    </div>
+    </div>
+    <!-- Habit 3 End -->
+
+    </div>
+    <!-- Habits Cards Row End -->
+
+    </section>
+    <!-- Section 2: Habits Section End -->
+
+    </main>
+    <!-- Main Container End -->
+
+
+
+
+
+    <!-- Footer Start -->
+    <footer id="footer-section" class="custom-footer mt-5">
+    <div class="container py-4">
+
+    <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+    
+    <!-- Brand Column Start -->
+    <div class="col-12 col-md-6">
+    <h4 class="logo-title text-white mb-2">YOM-B-YOM</h4>
+    <p class="text-light-brown mb-3">Your simple daily dashboard to write sticky notes, organize habits, and stay productive everyday.</p>
+    </div>
+    <!-- Brand Column End -->
+
+
+    <!-- Contact & Social Start -->
+    <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-md-end">
+    <p class="text-light-brown mb-2">support@yombyom.com</p>
+    
+    <!-- Social Links Start -->
+    <div class="d-flex gap-2">
+    <a href="#" class="social-icon">Facebook</a>
+    <a href="#" class="social-icon">Twitter</a>
+    <a href="#" class="social-icon">LinkedIn</a>
+    <a href="#" class="social-icon">Instagram</a>
+    </div>
+    <!-- Social Links End -->
+
+    </div>
+    <!-- Contact & Social End -->
+
+    </div>
+
+
+    <!-- Copyright Start -->
+    <div class="text-center pt-3">
+    <small class="text-light-brown">&copy; 2026 YOM-B-YOM. All rights reserved.</small>
+    </div>
+    <!-- Copyright End -->
+
+    </div>
+    </footer>
+    <!-- Footer End -->
+
+
+
+    <!-- Bootstrap 5 Bundle JS Start -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Bootstrap 5 Bundle JS End -->
+
+</body>
+</html>

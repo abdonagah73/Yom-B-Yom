@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Life Dashboard - Projects</title>
+<!-- Google Fonts Start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <!-- Google Fonts End -->
+    <link rel="stylesheet" href="./css/project.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+ body{
+      font-family: "Chewy", system-ui;
+}
+
+.font-2rem{
+    font-size: 2rem;
+}
+
+.font-1-5rem{
+    font-size: 1.5rem;
+}
+
+.font-2-5rem{
+    font-size: 2.5rem;
+}
+
+.font-3rem{
+    font-size: 3rem;
+} 
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            Life Dashboard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="calendar.html">Calendar</a>
+
+            <a href="tasks.html">Tasks</a>
+
+            <a href="goals.html">Goals</a>
+
+            <a href="project.html">Projects</a>
+
+        </div>
+
+        <!-- Dark / Light Mode -->
+
+        <button id="themeToggle" class="theme-btn" type="button">
+            🌙
+        </button>
+
+    </div>
+
+    <!-- Navbar -->
+
+
+   
+
+    <div class="container">
+
+       
+
+        <div class="header-section">
+
+            <h1>My Projects</h1>
+
+            <p>
+                Organize your projects, tasks and deadlines.
+            </p>
+
+            <button id="addProjectBtn" type="button">
+                + New Project
+            </button>
+
+        </div>
+
+
+       
+
+        <div class="stats">
+
+            <div class="card">
+
+                <h3>Total Projects</h3>
+
+                <p id="totalProjects">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>In Progress</h3>
+
+                <p id="inProgress">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Completed</h3>
+
+                <p id="completedProjects">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Upcoming</h3>
+
+                <p id="upcomingProjects">0</p>
+
+            </div>
+
+        </div>
+
+        
+
+       
+
+        <div class="search-section">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search projects..."
+            >
+
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="in-progress">
+                In Progress
+            </button>
+
+            <button class="filter-btn" data-filter="completed">
+                Completed
+            </button>
+
+            <button class="filter-btn" data-filter="not-started">
+                Not Started
+            </button>
+
+        </div>
+
+
+        
+
+        <div id="projectsContainer" class="projects-grid">
+
+        </div>
+
+    </div>
+
+    
+
+
+    <!-- Project -->
+
+    <div id="projectModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle">
+                Add New Project
+            </h2>
+
+
+            <form id="projectForm">
+
+                <div class="form-group">
+
+                    <label for="projectName">
+                        Project Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectName"
+                        placeholder="Enter project name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectDescription">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectDescription"
+                        placeholder="Enter project description"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectDeadline">
+                        Deadline
+                    </label>
+
+                    <input
+                        type="date"
+                        id="projectDeadline"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectStatus">
+                        Status
+                    </label>
+
+                    <select id="projectStatus">
+
+                        <option value="not-started">
+                            Not Started
+                        </option>
+
+                        <option value="in-progress">
+                            In Progress
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectProgress">
+                        Progress
+                    </label>
+
+                    <input
+                        type="range"
+                        id="projectProgress"
+                        min="0"
+                        max="100"
+                        value="0"
+                    >
+
+                    <p>
+                        <span id="progressValue">0</span>%
+                    </p>
+
+                </div>
+
+
+                <button type="submit">
+                    Save Project
+                </button>
+
+                <button
+                    type="button"
+                    id="closeModal"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Project -->
+
+
+    <!-- Task -->
+
+    <div id="taskModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>
+                Add Task
+            </h2>
+
+
+            <form id="taskForm">
+
+                <div class="form-group">
+
+                    <label for="taskName">
+                        Task Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskName"
+                        placeholder="Enter task name"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Add Task
+                </button>
+
+
+                <button
+                    type="button"
+                    id="closeTaskModal"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    
+        
+   
+
+
+    <!-- JavaScript -->
+
+    <script src="./js/project.js"></script>
+
+</body>
+
+</html>

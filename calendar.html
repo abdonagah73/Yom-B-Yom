@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts Start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <!-- Google Fonts End -->
+  <style>
+      
+ @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Chewy", system-ui;
+      background-color: #F8F5F0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #3E2723;
+    }
+
+    .calendar-card {
+      background: #FAF7F2;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(62, 39, 35, 0.05);
+      max-width: 650px;
+      width: 100%;
+    }
+
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: 500;
+      color: #8D6E63;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #E0D7C6;
+      padding-bottom: 10px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 18px 10px;
+      text-align: center;
+    }
+
+    .day-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 10px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .day-cell:hover {
+      background: #EFEBE4;
+      transform: translateY(-2px);
+    }
+
+    .day-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #D6CFC7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .day-circle svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .day-number {
+      margin-top: 8px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2C1810;
+    }
+
+    /* Modal / Pop-up Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(44, 24, 16, 0.4);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #FAF7F2;
+      padding: 30px;
+      border-radius: 24px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      color: #3E2723;
+    }
+
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .mood-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .mood-option:hover {
+      transform: scale(1.1);
+    }
+
+    .mood-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      margin-bottom: 6px;
+    }
+
+    .mood-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #5D4037;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Calendar Container -->
+  <div class="calendar-card">
+    <div class="calendar-header">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+    
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+
+  <!-- Mood Selection Modal -->
+  <div class="modal-overlay" id="moodModal">
+    <div class="modal-content">
+      <h2 class="modal-title">TODAY I FEEL...</h2>
+      <div class="mood-grid" id="moodGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    // قائمة المشاعر مع أكواد الـ SVG الخاصة بكل وجه باللون الأسود
+    const moods = [
+      { name: "ANGRY", color: "#A0522D", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#A0522D"/><path d="M 28 38 L 42 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 72 38 L 58 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><circle cx="35" cy="48" r="4" fill="#000"/><circle cx="65" cy="48" r="4" fill="#000"/><path d="M 35 70 Q 50 58 65 70" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "HAPPY", color: "#E6C280", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#E6C280"/><circle cx="35" cy="42" r="4.5" fill="#000"/><circle cx="65" cy="42" r="4.5" fill="#000"/><path d="M 32 60 Q 50 78 68 60" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "SAD", color: "#8B7D7B", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#8B7D7B"/><path d="M 28 42 Q 35 36 42 42" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 58 42 Q 65 36 72 42" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 35 68 Q 50 54 65 68" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "CALM", color: "#4A3B32", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#4A3B32"/><path d="M 28 45 Q 35 52 42 45" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 58 45 Q 65 52 72 45" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 36 62 Q 50 70 64 62" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "FRUSTRATED", color: "#B85A32", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#B85A32"/><path d="M 28 38 L 42 46" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 72 38 L 58 46" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 28 50 L 42 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 72 50 L 58 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 32 68 Q 40 60 50 68 T 68 68" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "PROUD", color: "#D2A679", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#D2A679"/><path d="M 28 44 Q 35 36 42 44" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M 58 44 Q 65 36 72 44" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M 32 60 Q 50 76 68 60 Z" fill="#000"/></svg>` },
+      { name: "ANXIOUS", color: "#A99A8B", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#A99A8B"/><line x1="30" y1="44" x2="44" y2="44" stroke="#000" stroke-width="4" stroke-linecap="round"/><line x1="56" y1="44" x2="70" y2="44" stroke="#000" stroke-width="4" stroke-linecap="round"/><line x1="32" y1="64" x2="68" y2="64" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>` },
+      { name: "RELAXED", color: "#E0C9A6", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#E0C9A6"/><path d="M 28 44 Q 35 50 42 44" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 58 44 Q 65 50 72 44" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 35 62 Q 50 70 65 62" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "SILLY", color: "#CD853F", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#CD853F"/><circle cx="35" cy="42" r="4.5" fill="#000"/><circle cx="65" cy="42" r="4.5" fill="#000"/><path d="M 32 58 Q 50 74 68 58" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M 52 64 Q 60 76 54 82 Q 46 82 50 65" fill="#000"/></svg>` },
+      { name: "SURPRISED", color: "#C6A686", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#C6A686"/><circle cx="35" cy="40" r="4" fill="#000"/><circle cx="65" cy="40" r="4" fill="#000"/><circle cx="50" cy="64" r="8" fill="#000"/></svg>` },
+      { name: "TIRED", color: "#8C7A6B", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#8C7A6B"/><path d="M 28 45 Q 35 52 42 45" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 58 45 Q 65 52 72 45" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 36 65 Q 50 58 64 65" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><text x="68" y="32" font-size="14" font-weight="bold" fill="#000">z</text><text x="76" y="24" font-size="11" font-weight="bold" fill="#000">z</text></svg>` },
+      { name: "KIND", color: "#5C4033", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#5C4033"/><circle cx="35" cy="42" r="4.5" fill="#fff"/><circle cx="65" cy="42" r="4.5" fill="#fff"/><path d="M 32 60 Q 50 76 68 60" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "SCARED", color: "#B26A4A", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#B26A4A"/><path d="M 28 36 L 42 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 72 36 L 58 44" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 28 48 L 42 42" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 72 48 L 58 42" stroke="#000" stroke-width="4" stroke-linecap="round"/><path d="M 32 64 Q 40 70 50 64 T 68 64" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` },
+      { name: "EXCITED", color: "#DEB887", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#DEB887"/><path d="M 26 42 L 40 34 L 30 48" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 74 42 L 60 34 L 70 48" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M 30 58 Q 50 80 70 58 Z" fill="#000"/></svg>` },
+      { name: "CONFUSED", color: "#9E8B7D", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#9E8B7D"/><circle cx="35" cy="42" r="4" fill="#000"/><circle cx="65" cy="42" r="4" fill="#000"/><path d="M 32 66 L 68 58" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>` },
+      { name: "LOVING", color: "#C18A6A", svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#C18A6A"/><path d="M 26 40 C 26 33 35 33 35 40 C 35 33 44 33 44 40 C 44 48 35 52 35 54 C 35 52 26 48 26 40 Z" fill="#000"/><path d="M 56 40 C 56 33 65 33 65 40 C 65 33 74 33 74 40 C 74 48 65 52 65 54 C 65 52 56 48 56 40 Z" fill="#000"/><path d="M 32 62 Q 50 78 68 62" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` }
+    ];
+
+    let selectedDayCircle = null;
+
+    const calendarGrid = document.getElementById('calendarGrid');
+    const moodModal = document.getElementById('moodModal');
+    const moodGrid = document.getElementById('moodGrid');
+
+    // 1. إعداد خيارات المشاعر داخل نافذة Pop-up
+    moods.forEach(mood => {
+      const option = document.createElement('div');
+      option.className = 'mood-option';
+      option.innerHTML = `
+        <div class="mood-icon">${mood.svg}</div>
+        <div class="mood-label">${mood.name}</div>
+      `;
+
+      option.addEventListener('click', () => {
+        if (selectedDayCircle) {
+          selectedDayCircle.innerHTML = mood.svg;
+          moodModal.classList.remove('active');
+        }
+      });
+
+      moodGrid.appendChild(option);
+    });
+
+    // 2. إنشاء أيام الشهر من 1 إلى 30
+    for (let day = 1; day <= 30; day++) {
+      const dayCell = document.createElement('div');
+      dayCell.className = 'day-cell';
+      
+      const circle = document.createElement('div');
+      circle.className = 'day-circle';
+
+      const number = document.createElement('div');
+      number.className = 'day-number';
+      number.textContent = day;
+
+      dayCell.appendChild(circle);
+      dayCell.appendChild(number);
+
+      // عند النقر ينفتح الـ Modal لاختيار المود
+      dayCell.addEventListener('click', () => {
+        selectedDayCircle = circle;
+        moodModal.classList.add('active');
+      });
+
+      calendarGrid.appendChild(dayCell);
+    }
+
+    // إغلاق النافذة عند الضغط خارجها
+    moodModal.addEventListener('click', (e) => {
+      if (e.target === moodModal) {
+        moodModal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

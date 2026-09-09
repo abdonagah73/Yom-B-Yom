@@ -1,0 +1,160 @@
+/* Habit Wrapper Start */
+.habits-wrapper {
+    background-color: #F8F3ED;
+    border: 2px solid #E5D7C7;
+    border-radius: 20px;
+    padding: 26px;
+}
+/* Habit Wrapper End */
+
+
+
+/* Text Colors Start */
+.text-brown-dark {
+    color: #3E2723 !important;
+    font-family: 'Chewy', cursive, sans-serif;
+}
+
+.text-brown {
+    color: #6D4C41 !important;
+    font-family: 'Chewy', cursive, sans-serif;
+}
+/* Text Colors End */
+
+
+
+/* Progress Bar Start */
+.bg-brown-pill {
+    background-color: #EFEBE9;
+    color: #4E342E;
+    font-size: 1rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.progress-bar-brown {
+    background-color: #6D4C41;
+}
+/* Progress Bar End */
+
+
+
+/* Habit Card Start */
+.habit-card {
+    border: 1.5px solid #E6D8C8 !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.habit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(62, 39, 35, 0.08) !important;
+}
+/* Habit Card End */
+
+
+
+/* Habit Title Input Start */
+.habit-title-input {
+    width: 100%;
+    font-size: 1.35rem;
+    font-family: 'Chewy', cursive, sans-serif;
+    color: #3E2723;
+    border: 1px solid transparent;
+    background: transparent;
+    outline: none;
+    padding: 2px 4px;
+    margin-bottom: 4px;
+    letter-spacing: 0.4px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.habit-title-input:focus {
+    background: #FAF7F2;
+    border-color: #CBB59D;
+}
+/* Habit Title Input End */
+
+
+
+/* Habit Description Textarea Start */
+.habit-desc-input {
+    width: 100%;
+    font-size: 1.05rem;
+    font-family: 'Chewy', cursive, sans-serif;
+    color: #6D4C41;
+    border: 1px solid transparent;
+    background: transparent;
+    outline: none;
+    padding: 4px 6px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+    border-radius: 6px;
+    resize: none;
+    min-height: 75px;
+    line-height: 1.45;
+    transition: 0.2s ease;
+}
+
+.habit-desc-input:focus {
+    background: #FAF7F2;
+    border-color: #CBB59D;
+}
+/* Habit Description Textarea End */
+
+
+
+/* Day Buttons Start */
+.day-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #CBB59D;
+    background-color: #FAF7F2;
+    color: #5D4037;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.15s ease;
+}
+
+.day-btn:hover {
+    background-color: #D7CCC8;
+}
+
+.day-btn.active {
+    background-color: #6D4C41;
+    border-color: #6D4C41;
+    color: #FFFFFF;
+}
+/* Day Buttons End */
+
+
+
+/* Done Button Start */
+.btn-done {
+    background-color: #EFEBE9;
+    color: #5D4037;
+    border: 1.5px solid #D7CCC8;
+    font-size: 1.05rem;
+    border-radius: 20px;
+    padding: 5px 16px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: 0.2s ease;
+}
+
+.btn-done:hover {
+    background-color: #D7CCC8;
+}
+
+.btn-done.active {
+    background-color: #388E3C;
+    border-color: #388E3C;
+    color: #FFFFFF;
+}
+/* Done Button End */

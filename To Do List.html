@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YOM-B-YOM | To Do List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/to do list.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="topbar">
+
+            <div class="greeting">
+
+                <div class="sun">
+                    ☀️
+                </div>
+
+                <div>
+                    <h1 id="greetName">
+                        Good Morning, Guest 💗
+                    </h1>
+
+                    <p>
+                        Let's make today count ✨
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <div class="search">
+                    🔍
+                    <span>Search...</span>
+                </div>
+
+                <button class="icon-btn">
+                    🔔
+                </button>
+
+
+                <div class="profile">
+
+                    <button class="profile-btn" id="profileBtn">
+
+                        <div class="avatar" id="avatarInit">
+                            G
+                        </div>
+
+                        <span class="chev">
+                            ▾
+                        </span>
+
+                    </button>
+
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <button id="signInOpt">
+                            Sign in
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= MAIN GRID ================= -->
+
+        <main class="main-grid">
+
+
+            <!-- ================= LEFT SIDE ================= -->
+
+            <section class="left-column">
+
+
+                <!-- TIMER -->
+
+                <div class="focus-card">
+
+
+                    <div class="focus-badge">
+                        <span class="focus-dot"></span>
+                        Focus mode ON
+                    </div>
+
+
+                    <button class="settings-btn">
+                        ⚙️
+                    </button>
+
+
+                    <div class="timer-intro">
+                        Stay focused on your task
+                    </div>
+
+
+                    <div class="timer-wrapper">
+
+                        <svg class="timer-svg" width="250" height="250" viewBox="0 0 250 250">
+
+                            <circle class="timer-track" cx="125" cy="125" r="108">
+                            </circle>
+
+                            <circle id="timerRing" class="timer-progress" cx="125" cy="125" r="108">
+                            </circle>
+
+                        </svg>
+
+
+                        <div class="timer-center">
+
+                            <div class="timer-task" id="timerTaskLabel">
+                                Focus Session
+                            </div>
+
+                            <div class="timer-text" id="timerText">
+                                25:00
+                            </div>
+
+                            <div class="timer-status">
+                                🎵 Stay focused
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timer-controls">
+
+                        <button class="btn btn-primary" id="playPauseBtn">
+                            ⏸ Pause
+                        </button>
+
+                        <button class="btn btn-outline" id="stopBtn">
+                            ■ Stop
+                        </button>
+
+                    </div>
+
+
+                    <div class="focus-quote">
+                        ♥ Focus on what matters
+                    </div>
+
+
+                    <div class="small-steps">
+                        <strong>Small steps</strong>
+                        <span>Big dreams</span>
+                    </div>
+
+
+                    <div class="person-icon">
+                        🧑‍💻
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= BOTTOM AREA ================= -->
+
+                <div class="bottom-area">
+
+
+                    <!-- TASK PROGRESS -->
+
+                    <div class="mini-card progress-card">
+
+                        <div class="mini-title">
+                            📋 Task Progress
+                        </div>
+
+
+                        <div class="progress-content">
+
+                            <div class="donut">
+
+                                <svg width="92" height="92" viewBox="0 0 92 92">
+
+                                    <circle class="donut-track" cx="46" cy="46" r="37">
+                                    </circle>
+
+                                    <circle id="donutRing" class="donut-progress" cx="46" cy="46" r="37">
+                                    </circle>
+
+                                </svg>
+
+
+                                <div class="donut-number" id="donutPct">
+                                    0%
+                                </div>
+
+                            </div>
+
+
+                            <div class="legend">
+
+                                <div class="legend-item">
+                                    <span class="legend-dot completed-dot"></span>
+                                    <span>Completed</span>
+                                    <b id="cntCompleted">0</b>
+                                </div>
+
+                                <div class="legend-item">
+                                    <span class="legend-dot progress-dot"></span>
+                                    <span>In Progress</span>
+                                    <b id="cntProgress">0</b>
+                                </div>
+
+                                <div class="legend-item">
+                                    <span class="legend-dot pending-dot"></span>
+                                    <span>Pending</span>
+                                    <b id="cntPending">0</b>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TODAY'S FOCUS -->
+
+                    <div class="mini-card">
+
+                        <div class="mini-title">
+                            🎯 Today's Focus
+                        </div>
+
+                        <div id="todaysFocusList"></div>
+
+                    </div>
+
+
+
+                    <!-- GOOD THINGS -->
+
+                    <div class="quote-card">
+
+                        <div class="quote-content">
+
+                            <span class="quote-small">
+                                A little reminder
+                            </span>
+
+                            <div class="quote-text">
+                                Good things
+                                <strong>take time</strong>
+                                ♥
+                            </div>
+
+                        </div>
+
+                        <div class="quote-icon">
+                            <img src="images/study work _ ✨.jpg" alt="study">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RIGHT SIDE ================= -->
+
+            <section class="right-column">
+
+
+                <!-- MY TASKS -->
+
+                <div class="tasks-card">
+
+
+                    <div class="tasks-head">
+
+                        <div>
+
+                            <div class="tasks-title">
+                                📋 My Tasks
+                            </div>
+
+                            <div class="tasks-sub">
+                                Keep going, you're doing great ✨
+                            </div>
+
+                        </div>
+
+
+                        <div class="completed-counter">
+
+                            <span id="completedCount">
+                                0
+                            </span>
+
+                            /
+
+                            <span id="totalCount">
+                                0
+                            </span>
+
+                            completed
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tasks-bar-bg">
+
+                        <div class="tasks-bar-fill" id="tasksBarFill">
+                        </div>
+
+                    </div>
+
+
+                    <div class="tabs-row">
+
+                        <div class="tabs">
+
+                            <button class="tab active" data-filter="all">
+                                All
+                            </button>
+
+                            <button class="tab" data-filter="today">
+                                Today
+                            </button>
+
+                            <button class="tab" data-filter="important">
+                                Important
+                            </button>
+
+                            <button class="tab" data-filter="completed">
+                                Completed
+                            </button>
+
+                        </div>
+
+
+                        <button class="add-task-btn" id="addTaskBtn">
+                            + Add Task
+                        </button>
+
+                    </div>
+
+
+                    <div class="task-list" id="taskList">
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================= SIGN IN MODAL ================= -->
+
+    <div class="modal-overlay" id="signInModal">
+
+        <div class="modal">
+
+            <h3>
+                Sign in
+            </h3>
+
+            <div class="field">
+
+                <label>
+                    Your name
+                </label>
+
+                <input type="text" id="signInName" placeholder="e.g. Sarah">
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button class="btn btn-cancel" id="signInCancel">
+                    Cancel
+                </button>
+
+                <button class="btn btn-primary" id="signInConfirm">
+                    Sign in
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= ADD TASK MODAL ================= -->
+
+    <div class="modal-overlay" id="addTaskModal">
+
+        <div class="modal">
+
+            <h3>
+                Add Task
+            </h3>
+
+
+            <div class="field">
+
+                <label>
+                    Task title
+                </label>
+
+                <input type="text" id="newTaskTitle" placeholder="e.g. Read a chapter">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Category
+                </label>
+
+                <select id="newTaskTag">
+
+                    <option value="Study">
+                        Study
+                    </option>
+
+                    <option value="Project">
+                        Project
+                    </option>
+
+                    <option value="University">
+                        University
+                    </option>
+
+                    <option value="Work">
+                        Work
+                    </option>
+
+                    <option value="Personal">
+                        Personal
+                    </option>
+
+                    <option value="Health">
+                        Health
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    When
+                </label>
+
+                <select id="newTaskWhen">
+
+                    <option value="Today">
+                        Today
+                    </option>
+
+                    <option value="Tomorrow">
+                        Tomorrow
+                    </option>
+
+                    <option value="Yesterday">
+                        Yesterday
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Time
+                </label>
+
+                <input type="text" id="newTaskTime" placeholder="e.g. 09:00 AM">
+
+            </div>
+
+
+            <div class="field-check">
+
+                <input type="checkbox" id="newTaskImportant">
+
+                <span>
+                    Mark as important
+                </span>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button class="btn btn-cancel" id="addTaskCancel">
+                    Cancel
+                </button>
+
+                <button class="btn btn-primary" id="addTaskConfirm">
+                    Add Task
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="js/to do list.js"></script>
+
+</body>
+
+</html>

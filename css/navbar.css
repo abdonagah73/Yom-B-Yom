@@ -5,8 +5,12 @@
    ========================================================= */
 
 /* Body & HTML Overflow Control */
-html, body {
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: clip;
     max-width: 100%;
 }
 

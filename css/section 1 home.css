@@ -56,22 +56,32 @@ body {
 }
 
 
+
 .gradient-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 40%;
     height: 100%;
-    background: linear-gradient(to right, rgb(232, 230, 225) 0%, rgba(56, 55, 55, 0) 100%);
+    background: linear-gradient(...);
     z-index: 1;
 }
 
 .hero-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+    object-position: top center;
     display: block;
+    margin-bottom: 20px;
+}
+#signInBtn {
+    background-color: #8B4513; 
+    color:brown;            
+    padding: 8px 16px;        
+    border: none;             
+    border-radius: 5px;       
+    cursor: pointer;          
 }
 
 

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yom-B-Yom | Financial & Shared Vault</title>
+
+  <!-- Google Fonts for Unified Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core & Page Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/financial.css">
+</head>
+<body>
+
+  <!-- Navbar Start -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Yom-B-Yom</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="To Do List.html">To Do List</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="financial.html" class="active">Financial</a></li>
+        <li><a href="social.html">Social</a></li>
+      </ul>
+
+      <div class="nav-buttons">
+        <a href="sign-in.html#login" class="login-btn">Login</a>
+        <a href="sign-in.html#register" class="register-btn">Register</a>
+        <button id="themeToggle" class="theme-btn">🌙</button>
+        <button id="menuToggle" class="menu-btn">☰</button>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <main class="budget-main-wrapper">
+    <div class="page-layout">
+      
+      <!-- 1. LEFT PANEL: Main Budget & Wishlist Auto-Deduct -->
+      <div class="left-panel">
+        
+        <!-- Top Budget Summary Banner -->
+        <div class="section-card">
+          <h2 class="section-title">Monthly Budget & Pocket Money</h2>
+          
+          <div class="budget-banner">
+            <div class="stat-box">
+              <span class="label">Monthly Income ($)</span>
+              <input type="number" id="monthly-income" value="1000" step="50">
+            </div>
+
+            <div class="stat-box">
+              <span class="label">Fixed Bills Total</span>
+              <span class="value" id="total-bills-val">$300.00</span>
+            </div>
+
+            <div class="stat-box highlight">
+              <span class="label">Remaining Pocket Money</span>
+              <span class="value" id="remaining-money-val">$700.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Savings Advice Box -->
+        <div class="savings-tip-box">
+          <div class="icon">💡</div>
+          <div>
+            <strong style="color: var(--accent-color); font-size: 14px; display: block; margin-bottom: 2px;">Smart Savings Helper</strong>
+            <p id="savings-advice-text">After bills, you have $700.00 left. Checking items in your Wishlist will auto-deduct from this balance!</p>
+          </div>
+        </div>
+
+        <!-- Essential Monthly Bills -->
+        <div class="section-card">
+          <h3 class="section-title">Fixed Monthly Bills</h3>
+          
+          <div class="input-row">
+            <input type="text" id="bill-name" class="form-input" placeholder="Bill Name (e.g. Rent, Internet)">
+            <input type="number" id="bill-amount" class="form-input" placeholder="Amount ($)" style="max-width: 130px;">
+            <button class="add-btn" id="add-bill-btn" type="button">Add Bill</button>
+          </div>
+
+          <div class="item-list" id="bills-list">
+            <!-- Dynamic Bills -->
+          </div>
+        </div>
+
+        <!-- Wishlist & Planned Buys -->
+        <div class="section-card">
+          <h3 class="section-title">
+            <span>Wishlist & Planned Items</span>
+            <span style="font-size: 12px; color: var(--text-muted); font-weight: normal;">Check (✓) auto-deducts money</span>
+          </h3>
+          
+          <div class="input-row">
+            <input type="text" id="wish-name" class="form-input" placeholder="Item Name (e.g. Autumn Coat, Coffee Beans)">
+            <input type="number" id="wish-amount" class="form-input" placeholder="Price ($)" style="max-width: 130px;">
+            <button class="add-btn" id="add-wish-btn" type="button">Add to Wishlist</button>
+          </div>
+
+          <div class="item-list" id="wishlist-container">
+            <!-- Dynamic Wishlist Items -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. RIGHT PANEL: Friends Vault & Shared Access -->
+      <div class="right-panel">
+        
+        <!-- Shared Friends Access & Outings -->
+        <div class="section-card">
+          <h3 class="section-title">Shared Vault & Friends Access</h3>
+          <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5;">
+            Manage group outing budgets, shared gift funds, or allow friends specific permissions.
+          </p>
+
+          <!-- Friend 1: Sarah -->
+          <div class="friend-card">
+            <div class="friend-header">
+              <div class="friend-name">
+                <span>👩🏽‍🦱 Sarah</span>
+                <span class="friend-badge">Can Edit</span>
+              </div>
+              <span class="access-tag">Access: Shared Outings</span>
+            </div>
+            
+            <div class="item-list" id="shared-items-list" style="max-height: 120px; gap: 6px;">
+              <!-- Dynamic Shared Items -->
+            </div>
+          </div>
+
+          <!-- Friend 2: Laila -->
+          <div class="friend-card">
+            <div class="friend-header">
+              <div class="friend-name">
+                <span>👩🏻 Laila</span>
+                <span class="friend-badge" style="background-color: var(--border-color);">View Only</span>
+              </div>
+              <span class="access-tag">Access: Birthday Gift Vault</span>
+            </div>
+            
+            <div class="item-list" style="max-height: 120px; gap: 6px;">
+              <div class="list-item" style="padding: 8px 12px; font-size: 12.5px;">
+                <span>🎁 Maya's Surprise Gift</span>
+                <span style="font-weight: 700; color: var(--accent-color);">$45.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Shared Outing Input -->
+          <div class="input-row" style="margin-top: 15px; margin-bottom: 0;">
+            <input type="text" id="shared-item-name" class="form-input" placeholder="Add Shared Activity / Gift">
+            <button class="add-btn" id="add-shared-btn" type="button">+ Shared</button>
+          </div>
+        </div>
+
+        <!-- Personal Budget Notes & Goals -->
+        <div class="section-card" style="flex: 1; display: flex; flex-direction: column;">
+          <h3 class="section-title">Savings Notes & Rules</h3>
+          <textarea id="budget-notes" class="form-input" style="flex: 1; min-height: 140px; resize: none; line-height: 1.6;" placeholder="Set personal savings rules (e.g. Try to keep $150 untouched at month end for emergency fund)..."></textarea>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+  <script src="./js/financial.js"></script>
+</body>
+</html>

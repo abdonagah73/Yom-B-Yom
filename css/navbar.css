@@ -74,7 +74,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 20px;
     margin-bottom: 0;
     padding-left: 0;
 }
@@ -196,7 +196,7 @@ html, body {
 }
 
 /* Responsive Mobile / Tablet */
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
     .navbar .nav-container,
     .nav-container {
         display: flex !important;

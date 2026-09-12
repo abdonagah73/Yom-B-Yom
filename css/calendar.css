@@ -1,0 +1,618 @@
+/* =========================================================
+   YOM-B-YOM MOOD JOURNAL & CALENDAR STYLESHEET (LIGHT THEME)
+   - Matches Home Page Warm Light Cream & Coffee Palette
+   - Clean, Aesthetic Two-Column Layout
+   - Interactive Vector Mood Tracker System
+   ========================================================= */
+
+:root {
+  /* Warm Light Aesthetic Palette (Matching Home) */
+  --cal-bg-color: #BFA486;          /* Warm Sandy Beige / Home Main BG */
+  --cal-bg-subtle: #F2D7C7;        /* Soft Peach Biscuit */
+  --cal-panel-bg: #FFFDF9;         /* Creamy Warm White */
+  --cal-card-bg: #F5EBE1;          /* Soft Beige Card */
+  --cal-card-hover: #EBDAC9;       /* Hover Shade */
+  --cal-border-color: #D8C4B2;     /* Muted Caramel Border */
+  --cal-text-color: #3E2E23;       /* Rich Deep Coffee Text */
+  --cal-text-muted: #7A5C4D;       /* Muted Warm Brown */
+  --cal-accent-color: #6F4E3D;     /* Brand Primary Coffee */
+  --cal-accent-warm: #A97955;      /* Warm Terracotta / Caramel */
+  --cal-circle-default: #EBD8C8;   /* Default Circle Slot */
+  
+  --cal-font-title: 'Chewy', cursive, sans-serif;
+  --cal-font-serif: 'Playfair Display', Georgia, serif;
+  --cal-font-body: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Dark Mode Override */
+body.dark-mode {
+  --cal-bg-color: #241A14;
+  --cal-bg-subtle: #2F221B;
+  --cal-panel-bg: #2E2018;
+  --cal-card-bg: #3D2B21;
+  --cal-card-hover: #4D372B;
+  --cal-border-color: #5A4032;
+  --cal-text-color: #F8F5F0;
+  --cal-text-muted: #C0A587;
+  --cal-accent-color: #D49A6A;
+  --cal-accent-warm: #E2BA97;
+  --cal-circle-default: #4A3528;
+}
+
+body {
+  background-color: var(--cal-bg-color);
+  color: var(--cal-text-color);
+  font-family: var(--cal-font-body);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calendar-main-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 60px;
+  width: 100%;
+}
+
+/* Main Page Layout */
+.page-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1250px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* ------------------------------
+   RIGHT PANEL: Calendar Section
+------------------------------ */
+.right-panel {
+  flex: 1.15;
+  background-color: var(--cal-panel-bg);
+  padding: 35px 30px;
+  border-radius: 24px;
+  border: 1.5px solid var(--cal-border-color);
+  box-shadow: 0 10px 30px rgba(62, 46, 35, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.calendar-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--cal-font-title);
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: var(--cal-accent-color);
+  margin: 0;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 13.5px;
+  color: var(--cal-text-muted);
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 480px;
+}
+
+.calendar-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.day-header {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cal-border-color);
+  color: var(--cal-accent-color);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px 8px;
+  text-align: center;
+}
+
+.day-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 0;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  border: 1.5px solid transparent;
+}
+
+.day-cell:hover {
+  background-color: var(--cal-card-hover);
+  transform: translateY(-2px);
+}
+
+.day-cell.selected {
+  border-color: var(--cal-accent-warm);
+  background-color: var(--cal-card-bg);
+  box-shadow: 0 4px 12px rgba(111, 78, 61, 0.15);
+}
+
+.circle-slot {
+  width: 44px;
+  height: 44px;
+  background-color: var(--cal-circle-default);
+  border-radius: 50%;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1.5px solid var(--cal-border-color);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.day-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cal-text-color);
+}
+
+/* ------------------------------
+   LEFT PANEL: Notes & Vibes
+------------------------------ */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Encouragement Card */
+.encouragement-box {
+  background-color: var(--cal-panel-bg);
+  padding: 24px 26px;
+  border-radius: 22px;
+  text-align: center;
+  border: 1.5px solid var(--cal-border-color);
+  box-shadow: 0 8px 25px rgba(62, 46, 35, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.encouragement-box h3 {
+  font-family: var(--cal-font-title);
+  font-size: 24px;
+  color: var(--cal-accent-color);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.encouragement-box p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--cal-text-color);
+  margin: 0;
+}
+
+/* Gallery Box */
+.gallery-box {
+  background-color: var(--cal-panel-bg);
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1.5px solid var(--cal-border-color);
+  box-shadow: 0 8px 25px rgba(62, 46, 35, 0.1);
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: 1.5px solid var(--cal-border-color);
+  padding-bottom: 10px;
+}
+
+.gallery-header h3 {
+  font-family: var(--cal-font-title);
+  font-size: 22px;
+  color: var(--cal-accent-color);
+  margin: 0;
+}
+
+.upload-btn {
+  background-color: var(--cal-accent-color);
+  color: #FFFDF9;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.upload-btn:hover {
+  background-color: var(--cal-accent-warm);
+  transform: scale(1.04);
+}
+
+#image-upload {
+  display: none;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  min-height: 80px;
+}
+
+.image-grid .img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 85px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cal-border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.08);
+}
+
+.image-grid .del-img-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(62, 46, 35, 0.85);
+  color: #fff;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.image-grid .img-wrapper:hover .del-img-btn {
+  opacity: 1;
+}
+
+.gallery-empty {
+  font-size: 13px;
+  color: var(--cal-text-muted);
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Notes Box */
+.notes-box {
+  background-color: var(--cal-panel-bg);
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1.5px solid var(--cal-border-color);
+  box-shadow: 0 8px 25px rgba(62, 46, 35, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.notes-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1.5px solid var(--cal-border-color);
+  padding-bottom: 8px;
+}
+
+.notes-box-header h3 {
+  font-family: var(--cal-font-title);
+  font-size: 22px;
+  color: var(--cal-accent-color);
+  margin: 0;
+}
+
+.save-status-indicator {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--cal-accent-warm);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.save-status-indicator.show {
+  opacity: 1;
+}
+
+.notes-box textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 140px;
+  background: var(--cal-card-bg);
+  border: 1.5px solid var(--cal-border-color);
+  border-radius: 14px;
+  padding: 14px;
+  font-family: var(--cal-font-body);
+  font-size: 14px;
+  color: var(--cal-text-color);
+  outline: none;
+  resize: none;
+  line-height: 1.7;
+  transition: border-color 0.2s;
+}
+
+.notes-box textarea:focus {
+  border-color: var(--cal-accent-warm);
+}
+
+.notes-box textarea::placeholder {
+  color: var(--cal-text-muted);
+}
+
+/* ------------------------------
+   POPUP MODAL (MOOD SELECTOR)
+------------------------------ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(62, 46, 35, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--cal-panel-bg);
+  border: 2px solid var(--cal-border-color);
+  padding: 30px;
+  border-radius: 26px;
+  box-shadow: 0 20px 45px rgba(62, 46, 35, 0.25);
+  max-width: 580px;
+  width: 92%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--cal-text-muted);
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--cal-accent-color);
+}
+
+.modal-title {
+  font-family: var(--cal-font-title);
+  font-size: 28px;
+  color: var(--cal-accent-color);
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 13.5px;
+  color: var(--cal-text-muted);
+  margin-bottom: 24px;
+}
+
+/* Mood Grid inside Popup */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 12px;
+}
+
+.mood-card {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+  transition: transform 0.2s;
+}
+
+.mood-card:hover {
+  transform: scale(1.15);
+}
+
+.mood-card span {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: var(--cal-text-color);
+}
+
+/* Vector Line-Art Face Styling */
+.face {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  border: 1.8px solid #3E2E23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(62, 46, 35, 0.15);
+}
+
+.face svg, .circle-slot svg {
+  width: 72%;
+  height: 72%;
+  stroke: #3E2E23;
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.face circle[fill="#2b2b2b"], .circle-slot circle[fill="#2b2b2b"] {
+  fill: #3E2E23 !important;
+}
+
+/* Color Palette for Vector Faces */
+.c-angry { background-color: #E88B74; }
+.c-happy { background-color: #F8D5B0; }
+.c-sad { background-color: #C2B3A8; }
+.c-calm { background-color: #6F4E3D; }
+.c-frustrated { background-color: #E88B74; }
+.c-proud { background-color: #F8D5B0; }
+.c-anxious { background-color: #C2B3A8; }
+.c-relaxed { background-color: #F8D5B0; }
+.c-silly { background-color: #E0A67E; }
+.c-surprised { background-color: #E0A67E; }
+.c-tired { background-color: #C2B3A8; }
+.c-kind { background-color: #6F4E3D; }
+.c-scared { background-color: #E88B74; }
+.c-excited { background-color: #F8D5B0; }
+.c-confused { background-color: #C2B3A8; }
+.c-loving { background-color: #D69788; }
+
+/* Crisp strokes for dark faces (Calm & Kind) */
+.dark-face svg {
+  stroke: #FFFDF9 !important;
+}
+.dark-face circle[fill] {
+  fill: #FFFDF9 !important;
+}
+
+/* Clear Day Mood Option */
+.clear-mood-row {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1.5px solid var(--cal-border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.clear-mood-btn {
+  background: transparent;
+  border: 1.5px dashed var(--cal-border-color);
+  color: var(--cal-text-muted);
+  padding: 7px 18px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-mood-btn:hover {
+  color: #C76B58;
+  border-color: #C76B58;
+  background: rgba(199, 107, 88, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .page-layout {
+    flex-direction: column;
+  }
+  .mood-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid {
+    gap: 8px 4px;
+  }
+  .circle-slot {
+    width: 36px;
+    height: 36px;
+  }
+  .day-header {
+    font-size: 11px;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

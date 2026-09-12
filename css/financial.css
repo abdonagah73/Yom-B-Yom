@@ -1,0 +1,417 @@
+/* =========================================================
+   YOM-B-YOM FINANCIAL & SHARED VAULT STYLESHEET (LIGHT THEME)
+   - Matches Home Page Warm Light Cream & Coffee Palette
+   - Two-Column Layout (Budget/Bills/Wishlist & Shared Vault)
+   - Interactive Live Auto-Deduct and Calculation
+   ========================================================= */
+
+:root {
+  /* Warm Light Aesthetic Palette (Matching Home) */
+  --bg-color: #BFA486;          /* Warm Sandy Beige / Home Main BG */
+  --bg-subtle: #F2D7C7;        /* Soft Peach Biscuit */
+  --panel-bg: #FFFDF9;         /* Creamy Warm White */
+  --card-bg: #F5EBE1;          /* Soft Beige Card */
+  --card-hover: #EBDAC9;       /* Hover Shade */
+  --border-color: #D8C4B2;     /* Muted Caramel Border */
+  --text-color: #3E2E23;       /* Rich Deep Coffee Text */
+  --text-muted: #7A5C4D;       /* Muted Warm Brown */
+  --accent-color: #6F4E3D;     /* Brand Primary Coffee */
+  --accent-light: #A97955;     /* Warm Caramel Accent */
+  
+  --bought-color: #5C825C;    /* Muted Sage Green for Bought Items */
+  --bought-bg: #E8F2E8;       /* Light Sage Tint */
+  --tag-friend: #C76B58;      /* Warm Terracotta for Friends Tag */
+
+  --font-title: 'Chewy', cursive, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Dark Mode Override */
+body.dark-mode {
+  --bg-color: #241A14;
+  --bg-subtle: #2F221B;
+  --panel-bg: #2E2018;
+  --card-bg: #3D2B21;
+  --card-hover: #4D372B;
+  --border-color: #5A4032;
+  --text-color: #F8F5F0;
+  --text-muted: #C0A587;
+  --accent-color: #D49A6A;
+  --accent-light: #E2BA97;
+  --bought-color: #8FA98F;
+  --bought-bg: #2A362A;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.budget-main-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 60px;
+  width: 100%;
+}
+
+.page-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1250px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* ------------------------------
+   SUMMARY HEADER & SMART CARDS
+------------------------------ */
+.left-panel {
+  flex: 1.25;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-card {
+  background-color: var(--panel-bg);
+  padding: 26px 28px;
+  border-radius: 24px;
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(62, 46, 35, 0.12);
+  transition: all 0.3s ease;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--accent-color);
+  margin-bottom: 16px;
+  border-bottom: 1.5px solid var(--border-color);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+/* Top Live Budget Banner */
+.budget-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-box {
+  background-color: var(--card-bg);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1.5px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(62, 46, 35, 0.06);
+}
+
+.stat-box .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.stat-box .value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.stat-box.highlight .value {
+  color: var(--accent-color);
+}
+
+.stat-box input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed var(--accent-color);
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 700;
+  width: 100%;
+  outline: none;
+  font-family: var(--font-body);
+}
+
+/* Savings Tip Box */
+.savings-tip-box {
+  background: linear-gradient(135deg, #FFF8F0, #F4E7DB);
+  border: 1.5px solid var(--accent-light);
+  padding: 18px 22px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 6px 20px rgba(62, 46, 35, 0.08);
+}
+
+body.dark-mode .savings-tip-box {
+  background: linear-gradient(135deg, #3D2820, #2A1A15);
+}
+
+.savings-tip-box .icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.savings-tip-box p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Inputs & Form Elements */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.form-input {
+  background-color: #FFFDF9;
+  border: 1.5px solid var(--border-color);
+  padding: 11px 15px;
+  border-radius: 12px;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  outline: none;
+  flex: 1;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+body.dark-mode .form-input {
+  background-color: var(--card-bg);
+}
+
+.form-input:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(169, 121, 85, 0.15);
+}
+
+.add-btn {
+  background-color: var(--accent-color);
+  color: #FFFDF9;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  background-color: var(--accent-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(111, 78, 61, 0.2);
+}
+
+/* Lists (Bills & Wishlist) */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.list-item {
+  background-color: var(--card-bg);
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.list-item:hover {
+  background-color: var(--card-hover);
+}
+
+.list-item .item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.list-item .item-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.list-item .item-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-item .item-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.list-item .delete-item-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  opacity: 0.6;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.list-item:hover .delete-item-btn {
+  opacity: 1;
+}
+
+.list-item .delete-item-btn:hover {
+  color: #C76B58;
+  background: rgba(199, 107, 88, 0.15);
+}
+
+/* Wishlist Checkbox & Auto-Deduct Style */
+.custom-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background-color: #FFFDF9;
+  flex-shrink: 0;
+  font-size: 13px;
+  line-height: 1;
+}
+
+body.dark-mode .custom-check {
+  background-color: var(--bg-color);
+}
+
+.list-item.wishlist-item {
+  cursor: pointer;
+}
+
+.list-item.bought {
+  opacity: 0.85;
+  background-color: var(--bought-bg);
+  border-color: var(--bought-color);
+}
+
+.list-item.bought .item-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.list-item.bought .custom-check {
+  background-color: var(--bought-color);
+  border-color: var(--bought-color);
+  color: #FFFDF9;
+  font-weight: 900;
+}
+
+/* Friends Section Styling */
+.friend-badge {
+  font-size: 10px;
+  background-color: var(--tag-friend);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.access-tag {
+  font-size: 11px;
+  color: var(--text-muted);
+  background-color: #FFFDF9;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+body.dark-mode .access-tag {
+  background-color: var(--card-bg);
+}
+
+.friend-card {
+  background-color: var(--card-bg);
+  padding: 16px;
+  border-radius: 18px;
+  border: 1.5px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.friend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.friend-name {
+  font-weight: 700;
+  font-size: 14.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .page-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .budget-banner {
+    grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

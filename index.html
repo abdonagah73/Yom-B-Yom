@@ -3,75 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yom-B-Yom</title>
+
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/navbar home.css">
-    <link rel="stylesheet" href="./css/section 1 home.css">
-    <link rel="stylesheet" href="./css/section2 home.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/section home.css">
     <link rel="stylesheet" href="./css/footer home.css">
-    <title>Yom-B-Yom</title>
+</head>
+<body>
 
-    <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
- body{
-      font-family: "Chewy", system-ui;
-      background-color: #BFA486;
-}
-
-.font-2rem{
-    font-size: 2rem;
-}
-
-.font-1-5rem{
-    font-size: 1.5rem;
-}
-
-.font-2-5rem{
-    font-size: 2.5rem;
-}
-
-.font-3rem{
-    font-size: 3rem;
-} 
-    </style>
-    </head>
-    <body>
-    
     <!-- Navbar Start -->
     <nav class="navbar">
     <div class="container nav-container">
-    <a href="index.html" class="logo">Life Dashboard</a>
+    <a href="index.html" class="logo">Yom-B-Yom</a>
 
     <ul class="nav-links" id="navLinks">
 
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
 
     <!-- Person 1 -->
     <li><a href="To Do List.html">To Do List</a></li>
 
     <!-- Person 2 -->
-    <li><a href="habits.html">Notes & Habits</a></li>
+    <li><a href="habits.html">Notes</a></li>
 
     <!-- Person 3 -->
-    <li><a href="project.html">Tasks & Goals & Project</a></li>
+    <li><a href="project.html">Project</a></li>
 
     <!-- Person 4 -->
-    <li><a href="calendar.html">Calendar & Finances</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
 
     <!-- Person 5 -->
     <li><a href="social.html">Social</a></li>
     </ul>
 
-    
     <div class="nav-buttons">
     <a href="login.html" class="login-btn">Login</a>
     <a href="register.html" class="register-btn">Register</a>
     <button id="themeToggle" class="theme-btn">🌙</button>
     <button id="menuToggle" class="menu-btn">☰</button>
+    </div>
     </div>
     </nav>
     <!-- Navbar End -->
@@ -86,21 +69,20 @@
 Stay focused, track your progress, and make every day better.<span class="heart">♡</span></h1>
     <p> 
         <a href="signin.html" id="signInBtn">Sign In</a>
-
+    </p>
     </div>
 
        
     <div class="hero-img-wrapper">
-    <div class="gradient-overlay"></div>
-    <img src="hom img.gpeg.jpeg" alt="Good morning">
+    <img src="./images/home-hero-preview.jpeg" alt="Yom-B-Yom Workspace Dashboard showcasing daily habits, tasks, and notes layout">
     </div>
     </section>
     <!-- end section1 -->
 
 
 
-<!-- start section2 -->
-<section id="service" class="container py-5 my-2 text-center">
+    <!-- start section2 -->
+    <section id="service" class="container py-5 my-2 text-center">
 
 
     <!-- Yom-B-Yom Daily Motivation Start -->
@@ -118,7 +100,7 @@ Stay focused, track your progress, and make every day better.<span class="heart"
     <!-- Img one start -->
     <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center">
     <div class="d-flex justify-content-center align-items-center">
-    <img class="w-100" src="images\Build Daily Habits.jpg" alt="images Build Daily Habits" >
+    <img class="w-100" src="./images/build-daily-habits.jpg" alt="Person writing a habit tracker and organizing daily routine">
     </div>
     <!-- Img one end -->
 
@@ -134,45 +116,43 @@ Stay focused, track your progress, and make every day better.<span class="heart"
     <!-- Img two start -->
     <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center">
     <div class="d-flex justify-content-center align-items-center">
-    <img class="w-100" src="images\Stay Active & Fit.jpg" alt="images Stay Active & Fit" >
+    <img class="w-100" src="./images/stay-active-fit.jpg" alt="Healthy lifestyle, workout fitness gear, and active wellness concept">
     </div>
     <!-- Img two end -->
 
-    <!-- title one start -->
+    <!-- title two start -->
     <h6 class="my-3 font-2rem">Stay Active & Fit</h6>
     <p class="text-muted">Physical energy fuels mental focus. Track your workouts, monitor your sleep, and keep your body ready for every daily challenge.</p>
     </div>
-    <!-- title one end --> 
-    <!-- Section One Part one end -->
+    <!-- title two end --> 
+    <!-- Section Two Part two end -->
 
 
     <!-- Img three start -->
     <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center">
     <div class="d-flex justify-content-center align-items-center">
-    <img class="w-100" src="images\Track Your Progress.jpg" alt="images Track Your Progress" >
+    <img class="w-100" src="./images/track-your-progress.jpg" alt="Analytics graphs, progress review, and personal milestone achievements">
     </div>
     <!-- Img three end -->
 
-    <!-- title one start -->
+    <!-- title three start -->
     <h6 class="my-3 font-2rem">Track Your Progress</h6>
     <p class="text-muted">See how far you've come every single day. Celebrate small wins, eliminate distractions, and share your inspiring journey with others.</p>
     </div>
-    <!-- title one end --> 
-    <!-- Section One Part one end -->
+    <!-- title three end --> 
+    <!-- Section Three Part three end -->
 
-
-
-     </div>
+    </div>
+    <!-- section 3 div end -->
     </section>
-      <!-- section 3 div end -->
-      <!-- end section2 -->
+    <!-- end section2 -->
 
 
 
 
-      <!-- start footer -->
-      <footer class="footer">
-      <div class="container">
+    <!-- start footer -->
+    <footer class="footer">
+    <div class="container">
 
     <!-- Top Section -->
     <div class="footer-top">
@@ -229,7 +209,7 @@ Stay focused, track your progress, and make every day better.<span class="heart"
         
     <div class="newsletter">
     <input type="email" placeholder="Enter your email">
-    <button>Subscribe</button>
+    <button type="button">Subscribe</button>
             
     </div>
     </div>
@@ -239,7 +219,7 @@ Stay focused, track your progress, and make every day better.<span class="heart"
     <div class="footer-column">
     <h3>Dashboard</h3>
         
-    <a href="#"><i class="bi bi-grid"> Overview</i></a>
+    <a href="#"><i class="bi bi-grid"></i> Overview</a>
 
     <a href="#"><i class="bi bi-check2-square"></i> My Tasks</a>
 
@@ -277,7 +257,7 @@ Stay focused, track your progress, and make every day better.<span class="heart"
     <!-- Bottom -->
     <div class="footer-bottom">
     
-    <p><i class="bi bi-c-circle"></i>2026 YOM-B-YOM. All rights reserved.</p>
+    <p><i class="bi bi-c-circle"></i> 2026 YOM-B-YOM. All rights reserved.</p>
     
     <div class="social-links">
         
@@ -297,65 +277,7 @@ Stay focused, track your progress, and make every day better.<span class="heart"
 
 
     <!-- JavaScript -->
-    <script src=".\js\script.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-   
-
-
-
-
-        
-
-
-      
-
-
-
-                  
-              
-
-
-    
-
-    

@@ -3,230 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yom-B-Yom | Social Life</title>
 
-    <title>Social Life</title>
-<!-- Google Fonts Start -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
-    <!-- Google Fonts End -->
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/social.css">
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-
- body{
-      font-family: "Chewy", system-ui;
-}
-
-.font-2rem{
-    font-size: 2rem;
-}
-
-.font-1-5rem{
-    font-size: 1.5rem;
-}
-
-.font-2-5rem{
-    font-size: 2.5rem;
-}
-
-.font-3rem{
-    font-size: 3rem;
-} 
-    </style>
 </head>
-
 <body>
 
-    <!-- ===== Header ===== -->
+    <!-- Navbar Start -->
+    <nav class="navbar">
+    <div class="container nav-container">
+    <a href="index.html" class="logo">Yom-B-Yom</a>
+
+    <ul class="nav-links" id="navLinks">
+
+    <li><a href="index.html">Home</a></li>
+
+    <!-- Person 1 -->
+    <li><a href="To Do List.html">To Do List</a></li>
+
+    <!-- Person 2 -->
+    <li><a href="habits.html">Notes</a></li>
+
+    <!-- Person 3 -->
+    <li><a href="project.html">Project</a></li>
+
+    <!-- Person 4 -->
+    <li><a href="calendar.html">Calendar</a></li>
+
+    <!-- Person 5 -->
+    <li><a href="social.html" class="active">Social</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="register.html" class="register-btn">Register</a>
+    <button id="themeToggle" class="theme-btn">🌙</button>
+    <button id="menuToggle" class="menu-btn">☰</button>
+    </div>
+    </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+    <!-- Header Start -->
     <header class="social-header">
-        <h1> Social Life</h1>
+        <h1>Social Life</h1>
         <p>Stay connected with your friends and activities</p>
     </header>
+    <!-- Header End -->
 
 
-    <!-- ===== Friends Section ===== -->
-    <section class="friends-section">
 
-        <h2> My Friends</h2>
-<div class="friends-container">
+    <main class="container">
 
-    <div class="friend-card">
-        <img src="./images/tom.jpg.jpeg" alt="Tom Cruise">
-        <h3>Tom Cruise</h3>
-        <p class="online">● Online</p>
-        <button>An American actor and producer, globally famous for doing his own stunts in action blockbusters like the Mission: Impossible franchise and Top Gun.</button>
-    </div>
-
-    <div class="friend-card">
-        <img src="./images/will.jpg.jpeg" alt="will ">
-        <h3>Mark Zuckerberg</h3>
-        <p class="online">● Online</p>
-        <button>An Oscar-winning American actor and musician, renowned for his iconic roles in The Pursuit of Happyness, Men in Black, and The Fresh Prince of Bel-Air.</button>
-    </div>
-
-    <div class="friend-card">
-        <img src="./images/mark.jpg.jpeg" alt="mark">
-        <h3>mark</h3>
-        <p class="offline">● Offline</p>
-        <button>The co-founder and CEO of Meta (formerly Facebook), and one of the most influential tech figures in modern social media.</button>
-    </div>
-
-    <div class="friend-card">
-        <img src="./images/lary.jpg.jpeg" alt="lary">
-        <h3>larry</h3>
-        <p class="online">● Online</p>
-        <button>An American computer scientist and Internet entrepreneur, best known as the co-founder of Google alongside Sergey Brin.</button>
-    </div>
-
-</div>
-
-    </section>
-
-
-    <!--  Posts Section -->
-    <section class="posts-section">
-
-        <h2> Posts</h2>
-
-        <!-- Add Post -->
-        <div class="add-post">
-
-            <textarea
-                id="postInput"
-                placeholder="What's on your mind?">
-            </textarea>
-
-            <button onclick="addPost()">Add Post</button>
-
-        </div>
-
-
-        <!-- Posts Container -->
-        <div id="postsContainer">
-
-            <!-- Post 1 -->
-            <div class="post-card">
-
-                <div class="post-header">
-                    <div class="post-user"></div>
-
-                    <div>
-                        <h3>WILL SMITH</h3>
-                        <span>Today</span>
-                    </div>
+        <!-- Friends Section Start -->
+        <section class="friends-section">
+            <h2>My Friends</h2>
+            <div class="friends-container">
+                <!-- Friend 1: Tom Cruise -->
+                <div class="friend-card">
+                    <img src="./images/tom-cruise.jpg" alt="Portrait photo of actor Tom Cruise">
+                    <h3>Tom Cruise</h3>
+                    <p class="online">● Online</p>
+                    <button type="button">An American actor and producer, globally famous for doing his own stunts in action blockbusters like the Mission: Impossible franchise and Top Gun.</button>
                 </div>
 
-                <p>
-                 Enjoying a wonderful day with my friends! 
-                </p>
-
-     <div class="post-actions">
-
-        <button onclick="likePost(this)">
-             <span>12</span>
-              </button>
-
-            <button onclick="showCommentBox(this)">
-                 💬 Comment
-             </button>
-
-             <button onclick="deletePost(this)">
-                      🗑️ Delete
-             </button>
-
-              </div>
-
-              <div class="comments">
-
-                 <p>
-                      <strong>MARK</strong>
-                      NICE! 
-                 </p>
-
+                <!-- Friend 2: Will Smith -->
+                <div class="friend-card">
+                    <img src="./images/will-smith.jpg" alt="Portrait photo of actor and musician Will Smith smiling">
+                    <h3>Will Smith</h3>
+                    <p class="online">● Online</p>
+                    <button type="button">An Oscar-winning American actor and musician, renowned for his iconic roles in The Pursuit of Happyness, Men in Black, and The Fresh Prince of Bel-Air.</button>
                 </div>
 
+                <!-- Friend 3: Mark Zuckerberg -->
+                <div class="friend-card">
+                    <img src="./images/mark-zuckerberg.jpg" alt="Portrait photo of tech entrepreneur Mark Zuckerberg">
+                    <h3>Mark Zuckerberg</h3>
+                    <p class="offline">● Offline</p>
+                    <button type="button">The co-founder and CEO of Meta (formerly Facebook), and one of the most influential tech figures in modern social media.</button>
+                </div>
+
+                <!-- Friend 4: Larry Page -->
+                <div class="friend-card">
+                    <img src="./images/larry-page.jpg" alt="Portrait photo of Google co-founder Larry Page">
+                    <h3>Larry Page</h3>
+                    <p class="online">● Online</p>
+                    <button type="button">An American computer scientist and Internet entrepreneur, best known as the co-founder of Google alongside Sergey Brin.</button>
+                </div>
+            </div>
+        </section>
+        <!-- Friends Section End -->
+
+
+
+        <!-- Posts Section Start -->
+        <section class="posts-section">
+            <h2>Posts</h2>
+
+            <div class="add-post">
+                <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+                <button type="button" onclick="addPost()">Add Post</button>
             </div>
 
-        </div>
-
-    </section>
-
-
-    <!--  Social Activities  -->
-    <section class="activities-section">
-
-        <h2> Social Activities</h2>
-
-        <!-- Add Activity -->
-        <div class="activity-form">
-
-            <input
-                type="text"
-                id="activityName"
-                placeholder="Activity name">
-
-            <input
-                type="date"
-                id="activityDate">
-
-            <button onclick="addActivity()">
-                Add Activity
-            </button>
-
-        </div>
+            <div id="postsContainer">
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-user"></div>
+                        <div>
+                            <h3>WILL SMITH</h3>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                    <p>Enjoying a wonderful day with my friends!</p>
+                    <div class="post-actions">
+                        <button type="button" onclick="likePost(this)"><span>12</span></button>
+                        <button type="button" onclick="showCommentBox(this)">💬 Comment</button>
+                        <button type="button" onclick="deletePost(this)">🗑️ Delete</button>
+                    </div>
+                    <div class="comments">
+                        <p><strong>MARK:</strong> NICE!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Posts Section End -->
 
 
-        <!-- Activities -->
-        <div id="activitiesContainer">
 
-            <div class="activity-card">
+        <!-- Social Activities Start -->
+        <section class="activities-section">
+            <h2>Social Activities</h2>
 
-                <div class="activity-icon">
-                    
+            <div class="activity-form">
+                <input type="text" id="activityName" placeholder="Activity name" aria-label="Activity Name">
+                <input type="date" id="activityDate" aria-label="Activity Date">
+                <button type="button" onclick="addActivity()">Add Activity</button>
+            </div>
+
+            <div id="activitiesContainer">
+                <div class="activity-card">
+                    <div class="activity-icon"></div>
+                    <div>
+                        <h3>Will Smith Birthday</h3>
+                        <p>3/1/2026</p>
+                    </div>
+                    <button type="button" onclick="deleteActivity(this)">Delete</button>
                 </div>
 
-                <div>
-                    <h3>will smith birthday</h3>
-                    <p>September 15,2026</p>
-         </div>
+                <div class="activity-card">
+                    <div class="activity-icon"></div>
+                    <div>
+                        <h3>Football Match</h3>
+                        <p>3/1/2026</p>
+                    </div>
+                    <button type="button" onclick="deleteActivity(this)">Delete</button>
+                </div>
+            </div>
+        </section>
+        <!-- Social Activities End -->
 
-              <button onclick="deleteActivity(this)">
-                    
-         </button>
-
- </div>
-
-
-    <div class="activity-card">
-
-     <div class="activity-icon">
-                    
-     </div>
-
-     <div>
-     <h3>Coffee With Friends</h3>
-     <p>September 18, 2026</p>
-</div>
-
- <button onclick="deleteActivity(this)">
-                    
- </button>
-
- </div>
-
-  </div>
-
-    </section>
+    </main>
 
 
-    <!-- Footer  -->
-    <footer>
-        <p>© 2026 Life Dashboard</p>
-    </footer>
 
-
+    <!-- JavaScript -->
     <script src="./js/social.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 </html>

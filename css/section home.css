@@ -1,0 +1,221 @@
+/* ================= SECTION 1: HERO ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: calc(100vh - 75px);
+    padding: 10px 20px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #F2D7C7;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 980px;
+    padding: 0 15px;
+    margin: 5px auto 12px;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    color: #543C32;
+    font-family: "Chewy", system-ui, sans-serif;
+    font-size: 2.15rem;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+}
+
+.hero-content .heart {
+    font-weight: 300;
+    color: #8B4513;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.hero-content p {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+#signInBtn {
+    display: inline-block;
+    background: linear-gradient(135deg, #6F4E3D 0%, #543C32 100%);
+    color: #EAD8C0 !important;
+    text-decoration: none;
+    font-family: "Chewy", system-ui, sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.8px;
+    padding: 8px 44px;
+    border: 2px solid #543C32;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(84, 60, 50, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#signInBtn:hover {
+    background: linear-gradient(135deg, #8B6E5E 0%, #6F4E3D 100%);
+    color: #FAF0E6 !important;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 24px rgba(84, 60, 50, 0.35);
+    border-color: #8B6E5E;
+}
+
+#signInBtn:active {
+    transform: translateY(0) scale(1.01);
+}
+
+.hero-img-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+.hero-img-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 56vh;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.hero-img-wrapper:hover img {
+    transform: scale(1.012);
+}
+
+.gradient-overlay {
+    display: none;
+}
+
+
+/* ================= SECTION 2: SERVICE & DAILY MOTIVATION ================= */
+#service {
+    padding: 70px 0 40px;
+    background-color: transparent;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+#service h4 {
+    color: #3E2E23 !important;
+    font-family: "Chewy", system-ui, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#service .text-muted.font-1-5rem,
+#service p.text-muted {
+    color: #543C32 !important;
+    font-family: "Chewy", system-ui, sans-serif;
+}
+
+#service .text-muted.font-1-5rem {
+    font-size: 1.6rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+#service .row {
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#service .col-12.col-lg-4 {
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#service .col-12.col-lg-4:hover {
+    transform: translateY(-8px);
+}
+
+#service .col-12.col-lg-4 img {
+    border-radius: 20px;
+    box-shadow: 0 10px 24px rgba(62, 46, 35, 0.18);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+#service .col-12.col-lg-4:hover img {
+    transform: scale(1.02);
+}
+
+#service h6 {
+    color: #3E2E23;
+    font-family: "Chewy", system-ui, sans-serif;
+    font-size: 2.1rem;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+#service .col-12.col-lg-4 p {
+    color: #4A3528 !important;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    #hero {
+        min-height: auto;
+        padding: 30px 16px 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.85rem;
+        line-height: 1.3;
+    }
+
+    #signInBtn {
+        font-size: 1.25rem;
+        padding: 8px 36px;
+    }
+
+    .hero-img-wrapper img {
+        max-height: 340px;
+    }
+
+    #service h4 {
+        font-size: 2.2rem;
+    }
+
+    #service h6 {
+        font-size: 1.7rem;
+    }
+}
+
+/* Utilities */
+.font-2rem { font-size: 2rem; }
+.font-1-5rem { font-size: 1.5rem; }
+.font-2-5rem { font-size: 2.5rem; }
+.font-3rem { font-size: 3rem; }

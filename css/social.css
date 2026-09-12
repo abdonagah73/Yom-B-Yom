@@ -90,7 +90,7 @@ section h2 {
     padding: 10px 22px;
     border-radius: 9px;
     background-color: #8B5E3C;
-    color: white;
+    color: #F5EBE0;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -128,7 +128,7 @@ section h2 {
 
 .add-post button {
     background-color: #795548;
-    color: white;
+    color: #F5EBE0;
     border: none;
     padding: 11px 22px;
     border-radius: 9px;
@@ -233,7 +233,7 @@ section h2 {
 .activity-form button {
     padding: 12px 20px;
     background-color: #6D4C41;
-    color: white;
+    color: #F5EBE0;
     border: none;
     border-radius: 9px;
     cursor: pointer;

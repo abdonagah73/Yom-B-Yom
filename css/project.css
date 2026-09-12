@@ -1,80 +1,13 @@
 /* ==============================
-   GLOBAL
+   PROJECT STYLES
 ============================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f7f4ef;
-    color: #302721;
-    font-family: Arial, sans-serif;
-}
-
-
-/* ==============================
-   NAVBAR
-============================== */
-
-.navbar {
-    background-color: white;
-    border-bottom: 1px solid #e7ded5;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 6%;
-
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.logo {
-    color: #4a382d;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    gap: 8px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #8b8179;
-    padding: 8px 12px;
-}
-
-.nav-links a:hover {
-    background-color: #eee5db;
-    color: #4a382d;
-}
-
-.theme-btn {
-    border: none;
-    background-color: #eee5db;
-    color: #4a382d;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    cursor: pointer;
-}
 
 
 /* ==============================
    CONTAINER
 ============================== */
 
-.container {
+.container:not(.nav-container) {
     width: 90%;
     max-width: 1200px;
 
@@ -105,7 +38,7 @@ body {
 
 .header-section button {
     background-color: #4a382d;
-    color: white;
+    color: #F5EBE0;
 
     border: none;
 
@@ -618,35 +551,6 @@ body.dark-mode {
 }
 
 
-/* Navbar */
-
-body.dark-mode .navbar {
-    background-color: #3E2E23;
-
-    border-color: #4a3b30;
-}
-
-body.dark-mode .logo {
-    color: #F8F5F0;
-}
-
-body.dark-mode .nav-links a {
-    color: #c5bebd;
-}
-
-body.dark-mode .nav-links a:hover {
-    background-color: #2b211b;
-
-    color: #F8F5F0;
-}
-
-body.dark-mode .theme-btn {
-    background-color: #2b211b;
-
-    color: #F8F5F0;
-}
-
-
 /* Header */
 
 body.dark-mode .header-section h1 {
@@ -973,15 +877,8 @@ body.dark-mode .delete-btn {
 
 @media (max-width: 700px) {
 
-    .navbar {
-        padding: 12px 4%;
-    }
 
-    .nav-links {
-        display: none;
-    }
-
-    .container {
+    .container:not(.nav-container) {
         width: 92%;
         padding-top: 30px;
     }

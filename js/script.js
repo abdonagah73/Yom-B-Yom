@@ -1,51 +1,28 @@
-// ================= MOBILE MENU =================
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.querySelector('.theme-btn');
+    const body = document.body;
 
-const menuToggle = document.getElementById("menuToggle");
-
-const navLinks = document.getElementById("navLinks");
-
-
-menuToggle.addEventListener("click", function () {
-
-    navLinks.classList.toggle("active");
-
-});
-
-
-// ================= DARK / LIGHT MODE =================
-
-const themeToggle = document.getElementById("themeToggle");
-
-
-themeToggle.addEventListener("click", function () {
-
-    document.body.classList.toggle("dark-mode");
-
-
-    if (document.body.classList.contains("dark-mode")) {
-
-        themeToggle.textContent = "☀️";
-
+    // التحقق من الاختيار المحفوظ مسبقاً في الـ localStorage لتثبيته في كل الصفحات
+    const savedTheme = localStorage.getItem('yom_theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
     } else {
-
-        themeToggle.textContent = "🌙";
-
+        if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
     }
 
-});
-
-
-// ================= CLOSE MOBILE MENU =================
-
-const navItems = document.querySelectorAll(".nav-links a");
-
-
-navItems.forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        navLinks.classList.remove("active");
-
-    });
-
+    // تفعيل التبديل عند الضغط على الزر
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('yom_theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('yom_theme', 'light');
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        });
+    }
 });

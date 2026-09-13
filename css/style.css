@@ -1,4 +1,4 @@
-/* =========================================================
+ /* =========================================================
    YOM-B-YOM GLOBAL STYLE SHEET
    - Unified Color Palette (CSS Variables)
    - Unified Typography (Chewy Font)
@@ -166,7 +166,6 @@ input, textarea, select {
 .font-2rem { font-size: 2rem; }
 .font-2-5rem { font-size: 2.5rem; }
 .font-3rem { font-size: 3rem; }
-
 .text-primary-color { color: var(--primary) !important; }
 .text-secondary-color { color: var(--secondary) !important; }
 .text-accent-color { color: var(--accent) !important; }
@@ -346,7 +345,6 @@ input, textarea, select {
 .menu-btn {
     display: none;
 }
-
 @media (max-width: 1050px) {
     .nav-container {
         display: flex;
@@ -387,4 +385,3 @@ input, textarea, select {
         font-size: 1rem;
     }
 }
-

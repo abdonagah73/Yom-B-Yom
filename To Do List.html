@@ -321,31 +321,24 @@
 
 
 
-                    <div class="dashboard-card notes-card" id="notesSection">
+                   <div class="dashboard-card notes-card">
 
-                        <div class="section-header">
+    <div class="section-header">
+        <div>
+            <h2>My Notes</h2>
+            <p>Keep your ideas in one place</p>
+        </div>
 
-                            <div>
-                                <div class="section-title">
-                                    <i class="bi bi-journal-text"></i>
-                                    <h2>Important Notes</h2>
-                                </div>
+        <button class="add-note-btn" id="addNoteBtn">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+    </div>
 
-                                <p>Keep your thoughts organized.</p>
-                            </div>
+    <div class="notes-list" id="notesList">
+        <!-- Notes will appear here -->
+    </div>
 
-
-                            <button class="add-note-btn" id="addNoteBtn" title="Add Note">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-
-                        </div>
-
-
-                        <div class="notes-list" id="notesList"></div>
-
-                    </div>
-
+</div>
 
 
                     <div class="dashboard-card motivation-card">
@@ -471,6 +464,48 @@
         </div>
 
     </div>
+    <div class="note-modal" id="noteModal">
+
+    <div class="note-modal-content">
+
+        <div class="note-modal-header">
+            <div>
+                <h3>New Note</h3>
+                <p>Write something you want to remember</p>
+            </div>
+
+            <button class="close-note-btn" id="closeNoteBtn">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <input
+            type="text"
+            id="noteTitle"
+            class="note-title-input"
+            placeholder="Note title..."
+            maxlength="40"
+        >
+
+        <textarea
+            id="noteInput"
+            class="note-text-input"
+            placeholder="Write your note here..."
+            maxlength="250"
+        ></textarea>
+
+        <div class="note-modal-footer">
+            <span id="noteCounter">0 / 250</span>
+
+            <button class="save-note-btn" id="saveNoteBtn">
+                <i class="bi bi-check-lg"></i>
+                Save Note
+            </button>
+        </div>
+
+    </div>
+
+</div>
 
 
     <script src="js/script.js"></script>

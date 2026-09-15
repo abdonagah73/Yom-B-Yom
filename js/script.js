@@ -49,6 +49,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    const authButtons = document.getElementById("authButtons");
+const signOutBtn = document.getElementById("signOutBtn");
+
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+if (isLoggedIn === "true") {
+    authButtons.style.display = "none";
+    signOutBtn.style.display = "block";
+} else {
+    authButtons.style.display = "flex";
+    signOutBtn.style.display = "none";
+}
+
+signOutBtn.addEventListener("click", function() {
+    localStorage.removeItem("isLoggedIn");
+
+    window.location.href = "index.html";
+});
+
+localStorage.removeItem("isLoggedIn");
 
     /* =========================
        DARK / LIGHT MODE

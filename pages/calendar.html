@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yom-B-Yom | Mood Journal & Calendar</title>
+
+  <!-- Google Fonts: Space Grotesk & Chewy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Core & Page Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+</head>
+<body>
+
+  <!-- Mobile Header -->
+  <header class="sidebar-mobile-header">
+    <a href="../index.html" class="logo">Yom-B-Yom</a>
+    <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+      <i class="bi bi-list"></i>
+      <span>Menu</span>
+    </button>
+  </header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <span>Yom-B-Yom</span>
+      </a>
+
+      <!-- Logged-in User Profile Widget -->
+      <div class="sidebar-user-box logged-in">
+        <a href="profile.html" class="sidebar-user-info">
+          <div class="sidebar-avatar">U</div>
+          <div class="sidebar-user-details">
+            <span class="sidebar-user-name">Friend</span>
+            <span class="sidebar-user-badge">Active Member</span>
+          </div>
+        </a>
+        <button class="sidebar-logout-btn" type="button" title="Sign Out">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Home</span>
+        </a>
+        <a href="To Do List.html" class="nav-item">
+          <i class="bi bi-check2-square"></i>
+          <span>To Do List</span>
+        </a>
+        <a href="notes.html" class="nav-item">
+          <i class="bi bi-journal-text"></i>
+          <span>Notes</span>
+        </a>
+        <a href="project.html" class="nav-item">
+          <i class="bi bi-kanban-fill"></i>
+          <span>Project</span>
+        </a>
+        <a href="calendar.html" class="nav-item active">
+          <i class="bi bi-calendar3"></i>
+          <span>Calendar</span>
+        </a>
+        <a href="financial.html" class="nav-item">
+          <i class="bi bi-wallet2"></i>
+          <span>Financial</span>
+        </a>
+        <a href="social.html" class="nav-item">
+          <i class="bi bi-chat-heart-fill"></i>
+          <span>Social</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-auth-buttons">
+          <a href="sign-in.html#login" class="sidebar-auth-btn login">Login</a>
+          <a href="sign-in.html#register" class="sidebar-auth-btn register">Register</a>
+        </div>
+
+        <div class="sidebar-theme-row">
+          <button id="themeToggle" class="sidebar-theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-label">Theme</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="calendar-main-wrapper">
+        <div class="page-layout">
+          
+          <!-- 1. RIGHT PANEL: Calendar -->
+          <div class="right-panel">
+            <section class="calendar-section">
+              <div class="calendar-top-bar">
+                <button id="prev-month-btn" class="cal-nav-btn" type="button" title="Previous Month" aria-label="Previous Month">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="cal-month-title-wrapper">
+                  <h2 class="section-title" id="calendar-month-title">September 2026</h2>
+                  <button id="today-btn" class="cal-today-btn" type="button" title="Jump to Today">Today</button>
+                </div>
+                <button id="next-month-btn" class="cal-nav-btn" type="button" title="Next Month" aria-label="Next Month">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+              <p class="section-subtitle">Click on any day to record your mood</p>
+              
+              <div class="calendar">
+                <div class="calendar-headers">
+                  <div class="day-header">Sun</div>
+                  <div class="day-header">Mon</div>
+                  <div class="day-header">Tue</div>
+                  <div class="day-header">Wed</div>
+                  <div class="day-header">Thu</div>
+                  <div class="day-header">Fri</div>
+                  <div class="day-header">Sat</div>
+                </div>
+                <div id="calendar-days" class="calendar-grid"></div>
+              </div>
+            </section>
+          </div>
+
+          <!-- 2. LEFT PANEL: Inspiration, Gallery & Notes -->
+          <div class="left-panel">
+            
+            <!-- Daily Inspiration Text -->
+            <div class="encouragement-box">
+              <h3>Daily Inspiration</h3>
+              <p id="daily-inspiration-text">"You are doing better than you think. Take a deep breath, embrace today with a peaceful heart, and celebrate every small step forward."</p>
+            </div>
+
+            <!-- Monthly Photo Gallery (1 to 5 Photos) -->
+            <div class="gallery-box">
+              <div class="gallery-header">
+                <h3 id="gallery-header-title">Monthly Memories</h3>
+                <label class="upload-btn" for="image-upload">Upload Photos</label>
+                <input type="file" id="image-upload" accept="image/*" multiple>
+              </div>
+              <div class="image-grid" id="image-grid">
+                <!-- Dynamically Uploaded Photos -->
+              </div>
+            </div>
+
+            <!-- Notes Area -->
+            <div class="notes-box">
+              <div class="notes-box-header">
+                <h3 id="notes-header-title">Notes & Reflection</h3>
+                <span class="save-status-indicator" id="notes-save-indicator">Saved!</span>
+              </div>
+              <textarea id="calendar-notes" placeholder="Write down your goals, special moments, or personal thoughts for this month..."></textarea>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 3. POPUP MODAL FOR MOOD SELECTION -->
+  <div id="mood-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-btn" id="close-modal">&times;</button>
+      <h2 class="modal-title">How Do You Feel Today?</h2>
+      <p class="modal-subtitle">Select your mood for the selected day:</p>
+      
+      <div class="mood-grid">
+        
+        <button class="mood-card" type="button">
+          <div class="face c-happy"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="1" fill="#2b2b2b"/><circle cx="15" cy="9" r="1" fill="#2b2b2b"/><path d="M8 14s1.5 3 4 3 4-3 4-3"/></svg></div>
+          <span>HAPPY</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-calm dark-face"><svg viewBox="0 0 24 24"><path d="M8 10s1-1 2 0M14 10s1-1 2 0M9 15s1.5 1.5 3 1.5 3-1.5 3-1.5"/></svg></div>
+          <span>CALM</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-relaxed"><svg viewBox="0 0 24 24"><path d="M7 10h3M14 10h3M9 15s1.5 1.5 3 1.5 3-1.5 3-1.5"/></svg></div>
+          <span>RELAXED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-loving"><svg viewBox="0 0 24 24"><path d="M12 15s1.5 2 3 2 3-2 3-2M7 8c-1-1-2 0-2 1s2 3 2 3 2-2 2-3-1-2-2-1zM17 8c-1-1-2 0-2 1s2 3 2 3 2-2 2-3-1-2-2-1z" fill="#2b2b2b"/></svg></div>
+          <span>LOVING</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-excited"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="1" fill="#2b2b2b"/><circle cx="15" cy="8" r="1" fill="#2b2b2b"/><path d="M8 13s2 4 4 4 4-4 4-4H8z" fill="#2b2b2b"/></svg></div>
+          <span>EXCITED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-proud"><svg viewBox="0 0 24 24"><path d="M7 9s2-1 3 0M14 9s2-1 3 0M8 14s2 2 4 2 4-2 4-2"/></svg></div>
+          <span>PROUD</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-kind dark-face"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="1" fill="#2b2b2b"/><circle cx="15" cy="9" r="1" fill="#2b2b2b"/><path d="M8 14s1.5 2.5 4 2.5 4-2.5 4-2.5"/></svg></div>
+          <span>KIND</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-silly"><svg viewBox="0 0 24 24"><path d="M7 8l3 3m0-3l-3 3M15 9r1"/><path d="M9 14s1.5 2 3 2 3-2 3-2M12 16v3"/></svg></div>
+          <span>SILLY</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-sad"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="1" fill="#2b2b2b"/><circle cx="15" cy="9" r="1" fill="#2b2b2b"/><path d="M8 16s1.5-2 4-2 4 2 4 2"/></svg></div>
+          <span>SAD</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-anxious"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="1" fill="#2b2b2b"/><circle cx="15" cy="9" r="1" fill="#2b2b2b"/><path d="M8 15h8"/></svg></div>
+          <span>ANXIOUS</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-tired"><svg viewBox="0 0 24 24"><path d="M7 10s1.5-1.5 3 0M14 10s1.5-1.5 3 0M9 15h6"/></svg></div>
+          <span>TIRED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-surprised"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="1" fill="#2b2b2b"/><circle cx="15" cy="8" r="1" fill="#2b2b2b"/><circle cx="12" cy="15" r="2.5"/></svg></div>
+          <span>SURPRISED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-angry"><svg viewBox="0 0 24 24"><path d="M8 9l2 1M16 9l-2 1M9 16s1.5-2 3-2 3 2 3 2"/></svg></div>
+          <span>ANGRY</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-frustrated"><svg viewBox="0 0 24 24"><path d="M7 8l3 3m0-3l-3 3M14 8l3 3m0-3l-3 3M8 16h8"/></svg></div>
+          <span>FRUSTRATED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-scared"><svg viewBox="0 0 24 24"><path d="M7 7l3 3m-3 0l3-3M14 7l3 3m-3 0l3-3M8 16s2-1.5 4-1.5 4 1.5 4 1.5"/></svg></div>
+          <span>SCARED</span>
+        </button>
+
+        <button class="mood-card" type="button">
+          <div class="face c-confused"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="1" fill="#2b2b2b"/><circle cx="15" cy="9" r="1" fill="#2b2b2b"/><path d="M8 16l8-3"/></svg></div>
+          <span>CONFUSED</span>
+        </button>
+
+      </div>
+
+      <div class="clear-mood-row">
+        <button id="clear-mood-btn" class="clear-mood-btn" type="button">Clear Mood For This Day</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/script.js"></script>
+  <script src="../js/calendar.js"></script>
+</body>
+</html>

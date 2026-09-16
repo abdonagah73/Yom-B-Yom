@@ -2,6 +2,7 @@
    HABITS & WHITEBOARD UNIFIED STYLESHEET
    - Section 1: Whiteboard & Notes
    - Section 2: Habits Tracker & Streak
+   - High Contrast Light / Dark Mode
    ========================================================= */
 
 /* ================= SECTION 1: WHITEBOARD PANEL ================= */
@@ -15,7 +16,7 @@
 }
 
 .whiteboard-panel {
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(248, 239, 228, 0.94);
     backdrop-filter: blur(10px);
     border: 6px solid #4E342E;
     border-radius: 16px;
@@ -35,27 +36,27 @@
 }
 
 .board-title-text {
-    font-family: 'Chewy', cursive, sans-serif;
+    font-family: var(--font-title);
     color: #3E2723;
-    font-size: 1.85rem;
+    font-size: 2rem;
     margin-bottom: 2px;
     letter-spacing: 0.5px;
 }
 
 .board-subtitle-text {
-    font-family: 'Chewy', cursive, sans-serif;
+    font-family: var(--font-body);
     color: #6D4C41;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .btn-board-save {
-    font-family: 'Chewy', cursive, sans-serif;
+    font-family: var(--font-title);
     background-color: #5D4037;
     color: #FAF0E6;
     border: none;
-    padding: 8px 20px;
+    padding: 8px 24px;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     letter-spacing: 0.5px;
     transition: 0.2s ease;
 }
@@ -64,12 +65,13 @@
     background-color: #3E2723;
     color: #FAF0E6;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.2);
 }
 
 .note-square-box {
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(109, 76, 65, 0.25);
+    border: 1.5px solid rgba(109, 76, 65, 0.3);
     border-radius: 14px;
     padding: 16px 16px 12px;
     min-height: 190px;
@@ -77,110 +79,128 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 6px;
-    box-shadow: 0 4px 14px rgba(62, 39, 35, 0.06);
+    box-shadow: 0 4px 14px rgba(62, 39, 35, 0.08);
     transition: all 0.25s ease;
 }
 
 .note-square-box:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.85);
+    background: #FFFFFF;
     border-color: #6D4C41;
-    box-shadow: 0 8px 22px rgba(62, 39, 35, 0.14);
+    box-shadow: 0 8px 22px rgba(62, 39, 35, 0.16);
 }
 
 .square-title-input {
-    font-family: 'Chewy', cursive, sans-serif;
+    font-family: var(--font-title);
     width: 100%;
     background: transparent;
     border: 1px solid transparent;
     border-radius: 6px;
     color: #3E2723;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     letter-spacing: 0.3px;
     margin-bottom: 2px;
     outline: none;
-    padding: 2px 4px;
+    padding: 4px 6px;
     transition: 0.2s ease;
 }
 
 .square-title-input:focus {
-    background: rgba(255, 255, 255, 0.8);
+    background: #FFFFFF;
     border-color: #8D6E63;
+    color: #3E2723;
 }
 
 .square-textarea {
-    font-family: 'Chewy', cursive, sans-serif;
+    font-family: var(--font-body);
     width: 100%;
     background: transparent;
     border: 1px solid transparent;
     border-radius: 6px;
     color: #4E342E;
-    font-size: 1.05rem;
-    line-height: 1.45;
-    letter-spacing: 0.3px;
+    font-size: 1rem;
+    line-height: 1.5;
     outline: none;
     resize: none;
-    padding: 4px;
+    padding: 6px;
     flex-grow: 1;
     transition: 0.2s ease;
 }
 
 .square-textarea:focus {
-    background: rgba(255, 255, 255, 0.8);
+    background: #FFFFFF;
     border-color: #8D6E63;
+    color: #3E2723;
 }
 
 
 /* ================= SECTION 2: HABITS TRACKER ================= */
 .habits-wrapper {
-    background-color: #F8F3ED;
-    border: 2px solid #E5D7C7;
+    background-color: var(--bg-card-alt);
+    border: 1.5px solid var(--border-color);
     border-radius: 20px;
     padding: 26px;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.3s ease;
+}
+
+.habit-progress-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
 }
 
 .text-brown-dark {
-    color: #3E2723 !important;
-    font-family: 'Chewy', cursive, sans-serif;
+    color: var(--text-primary) !important;
+    font-family: var(--font-title);
 }
 
 .text-brown {
-    color: #6D4C41 !important;
-    font-family: 'Chewy', cursive, sans-serif;
+    color: var(--text-secondary) !important;
+    font-family: var(--font-body);
 }
 
 .bg-brown-pill {
-    background-color: #EFEBE9;
-    color: #4E342E;
-    font-size: 1rem;
+    background-color: var(--swatch-mocha);
+    color: var(--swatch-pale-sand);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     padding: 6px 14px;
     border-radius: 20px;
     letter-spacing: 0.5px;
 }
 
+body.dark-mode .bg-brown-pill {
+    background-color: var(--swatch-sand);
+    color: var(--swatch-mahogany);
+}
+
 .progress-bar-brown {
-    background-color: #6D4C41;
+    background-color: var(--accent);
 }
 
 .habit-card {
-    border: 1.5px solid #E6D8C8 !important;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .habit-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(62, 39, 35, 0.08) !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
 .habit-title-input {
     width: 100%;
     font-size: 1.35rem;
-    font-family: 'Chewy', cursive, sans-serif;
-    color: #3E2723;
+    font-family: var(--font-title);
+    color: var(--text-primary);
     border: 1px solid transparent;
     background: transparent;
     outline: none;
-    padding: 2px 4px;
+    padding: 4px 6px;
     margin-bottom: 4px;
     letter-spacing: 0.4px;
     border-radius: 6px;
@@ -188,40 +208,40 @@
 }
 
 .habit-title-input:focus {
-    background: #FAF7F2;
-    border-color: #CBB59D;
+    background: var(--bg-main);
+    border-color: var(--border-focus);
 }
 
 .habit-desc-input {
     width: 100%;
-    font-size: 1.05rem;
-    font-family: 'Chewy', cursive, sans-serif;
-    color: #6D4C41;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--text-muted);
     border: 1px solid transparent;
     background: transparent;
     outline: none;
-    padding: 4px 6px;
+    padding: 6px 8px;
     margin-bottom: 12px;
-    letter-spacing: 0.3px;
     border-radius: 6px;
     resize: none;
     min-height: 75px;
-    line-height: 1.45;
+    line-height: 1.5;
     transition: 0.2s ease;
 }
 
 .habit-desc-input:focus {
-    background: #FAF7F2;
-    border-color: #CBB59D;
+    background: var(--bg-main);
+    border-color: var(--border-focus);
 }
 
 .day-btn {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1.5px solid #CBB59D;
-    background-color: #FAF7F2;
-    color: #5D4037;
+    border: 1.5px solid var(--border-color);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-title);
     font-size: 1.05rem;
     display: inline-flex;
     align-items: center;
@@ -232,19 +252,20 @@
 }
 
 .day-btn:hover {
-    background-color: #D7CCC8;
+    background-color: var(--border-color);
 }
 
 .day-btn.active {
-    background-color: #6D4C41;
-    border-color: #6D4C41;
-    color: #FAF0E6;
+    background-color: var(--swatch-mocha);
+    border-color: var(--swatch-mocha);
+    color: var(--swatch-pale-sand);
 }
 
 .btn-done {
-    background-color: #EFEBE9;
-    color: #5D4037;
-    border: 1.5px solid #D7CCC8;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border-color);
+    font-family: var(--font-title);
     font-size: 1.05rem;
     border-radius: 20px;
     padding: 5px 16px;
@@ -254,13 +275,13 @@
 }
 
 .btn-done:hover {
-    background-color: #D7CCC8;
+    background-color: var(--border-color);
 }
 
 .btn-done.active {
     background-color: #388E3C;
     border-color: #388E3C;
-    color: #FAF0E6;
+    color: #FFFFFF;
 }
 
 /* Responsive */
@@ -272,4 +293,115 @@
         padding: 16px 10px;
         border-width: 4px;
     }
+}
+
+/* ================= DARK MODE EXPLICIT CONTRAST OVERRIDES ================= */
+body.dark-mode .whiteboard-panel {
+    background-color: rgba(30, 20, 11, 0.94);
+    border-color: var(--swatch-sand);
+}
+
+body.dark-mode .board-title-text {
+    color: var(--swatch-pale-sand);
+}
+
+body.dark-mode .board-subtitle-text {
+    color: var(--swatch-sand);
+}
+
+body.dark-mode .note-square-box {
+    background: rgba(45, 30, 19, 0.9);
+    border-color: rgba(255, 236, 198, 0.22);
+}
+
+body.dark-mode .note-square-box:hover {
+    background: #362417;
+    border-color: var(--swatch-chamois);
+}
+
+body.dark-mode .square-title-input {
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .square-title-input:focus {
+    background: #25180F !important;
+    border-color: var(--swatch-chamois) !important;
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .square-textarea {
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .square-textarea:focus {
+    background: #25180F !important;
+    border-color: var(--swatch-chamois) !important;
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .habits-wrapper {
+    background-color: #1E140C !important;
+    border-color: rgba(255, 236, 198, 0.16) !important;
+}
+
+body.dark-mode .habit-progress-card {
+    background-color: #2D1E13 !important;
+    border-color: rgba(255, 236, 198, 0.16) !important;
+}
+
+body.dark-mode .habit-card {
+    background-color: #2D1E13 !important;
+    border-color: rgba(255, 236, 198, 0.16) !important;
+}
+
+body.dark-mode .text-brown-dark {
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .text-brown {
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .habit-title-input {
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .habit-title-input:focus {
+    background: #23160C !important;
+    border-color: var(--swatch-chamois) !important;
+    color: var(--swatch-pale-sand) !important;
+}
+
+body.dark-mode .habit-desc-input {
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .habit-desc-input:focus {
+    background: #23160C !important;
+    border-color: var(--swatch-chamois) !important;
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .day-btn {
+    background-color: #23160C !important;
+    border-color: rgba(255, 236, 198, 0.2) !important;
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .day-btn.active {
+    background-color: var(--swatch-chamois) !important;
+    border-color: var(--swatch-chamois) !important;
+    color: var(--swatch-mahogany) !important;
+}
+
+body.dark-mode .btn-done {
+    background-color: #23160C !important;
+    border-color: rgba(255, 236, 198, 0.2) !important;
+    color: var(--swatch-sand) !important;
+}
+
+body.dark-mode .btn-done.active {
+    background-color: #2E7D32 !important;
+    border-color: #2E7D32 !important;
+    color: #FFFFFF !important;
 }

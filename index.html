@@ -1,49 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Dashboard - Notifications</title>
-    <!--  Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Yom-B-Yom | Everyday Life Dashboard</title>
+
+    <!-- Google Fonts: Space Grotesk & Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/section home.css">
+    <link rel="stylesheet" href="./css/footer home.css">
 </head>
 <body>
 
-    <!-- Navigation Header  -->
-    <header class="navbar">
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">To Do List</a>
-            <a href="#">Notes</a>
-            <a href="#">Project</a>
-            <a href="#">Calendar</a>
-            <a href="#">Financial</a>
-            <a href="#">Social</a>
-            <a href="#" class="active">Notifications</a>
-        </div>
-    </header>
+    <!-- Navbar Start -->
+    <nav class="navbar" id="topNavbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span>Yom-B-Yom</span>
+                <span class="logo-heart">♡</span>
+            </a>
 
-    <!-- Container -->
-    <main class="main-content">
-        <div class="notifications-card">
-            
-            <!-- Card Header -->
-            <div class="card-header">
-                <div class="header-title">
-                    <h2>Notifications</h2>
-                    <span class="badge" id="unread-count">0</span>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/To Do List.html">To Do List</a></li>
+                <li><a href="pages/notes.html">Notes</a></li>
+                <li><a href="pages/project.html">Project</a></li>
+                <li><a href="pages/calendar.html">Calendar</a></li>
+                <li><a href="pages/financial.html">Financial</a></li>
+                <li><a href="pages/social.html">Social</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <!-- Guest State -->
+                <div class="auth-guest">
+                    <a href="pages/sign-in.html#login" class="login-btn">Login</a>
+                    <a href="pages/sign-in.html#register" class="register-btn">Register</a>
                 </div>
-                <button class="btn-mark-all" onclick="markAllAsRead()">Mark all as read</button>
-            </div>
 
-            <!-- Notifications  Area -->
-            <div class="notifications-list" id="notifications-list">
-                <!-- Data rendered dynamically from JS -->
-            </div>
+                <!-- Logged In State (Dynamic Profile) -->
+                <div class="auth-user">
+                    <a href="pages/profile.html" class="nav-profile-link" title="View Profile">
+                        <span class="nav-profile-avatar">U</span>
+                        <span class="nav-user-name">Profile</span>
+                    </a>
+                    <button class="btn-nav-logout" type="button" title="Log Out">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </div>
 
+                <!-- Theme Button -->
+                <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuToggle" class="menu-btn" aria-label="Open menu">☰</button>
+            </div>
         </div>
-    </main>
+    </nav>
+    <!-- Navbar End -->
 
-    <script src="script.js"></script>
+    <!-- Section 1: Hero -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>
+                Yom-B-Yom<br>
+                Manage your day, organize your life, and achieve your goals — all in one place.
+                Stay focused, track your progress, and make every day better.
+                <span class="heart">♡</span>
+            </h1>
+            <p>
+                <a href="pages/sign-in.html#login" id="signInBtn">Get Started</a>
+            </p>
+        </div>
+
+        <div class="hero-img-wrapper">
+            <img src="./images/home-hero-preview.jpeg" alt="Yom-B-Yom Workspace Dashboard showcasing daily habits, tasks, and notes layout">
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- Section 2: Daily Motivation & Services -->
+    <section id="service" class="container text-center">
+        <div>
+            <h4 class="text-uppercase font-2-5rem">Daily Motivation</h4>
+            <p class="text-muted font-1-5rem">Yom-B-Yom</p>
+        </div>
+
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-4">
+                <img class="w-100" src="./images/build-daily-habits.jpg" alt="Build Daily Habits">
+                <h6 class="my-3 font-2rem">Build Daily Habits</h6>
+                <p class="text-muted">Small daily actions create massive long-term results. Track your daily streak, stay consistent, and take control of your routine day by day.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-12 col-lg-4">
+                <img class="w-100" src="./images/stay-active-fit.jpg" alt="Stay Active & Fit">
+                <h6 class="my-3 font-2rem">Stay Active & Fit</h6>
+                <p class="text-muted">Physical energy fuels mental focus. Track your workouts, monitor your sleep, and keep your body ready for every daily challenge.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-lg-4">
+                <img class="w-100" src="./images/track-your-progress.jpg" alt="Track Your Progress">
+                <h6 class="my-3 font-2rem">Track Your Progress</h6>
+                <p class="text-muted">See how far you've come every single day. Celebrate small wins, eliminate distractions, and share your inspiring journey with others.</p>
+            </div>
+        </div>
+    </section>
+    <!-- End Daily Motivation -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Top Section -->
+            <div class="footer-top">
+                <div class="footer-contact-card">
+                    <div class="contact-icon">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+                    <div>
+                        <span>Stay on track</span>
+                        <a href="pages/To Do List.html">Manage your daily tasks</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-card">
+                    <div class="contact-icon">
+                        <i class="bi bi-bar-chart-line"></i>
+                    </div>
+                    <div>
+                        <span>Track your progress</span>
+                        <a href="pages/project.html">View your statistics</a>
+                    </div>
+                </div>
+
+                <a href="pages/To Do List.html" class="book-btn">
+                    <span><i class="bi bi-list-check"></i></span>
+                    <div>
+                        <small>Ready to stay organized?</small>
+                        <strong>Manage Your Tasks</strong>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Content Section -->
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>YOM-B-YOM</h2>
+                    <p class="brand-subtitle">Your Everyday Dashboard</p>
+                    <p>
+                        Manage your daily tasks, track your progress and stay organized with everything you need in one simple dashboard.
+                    </p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="pages/To Do List.html"><i class="bi bi-check2-square"></i> To Do List</a>
+                    <a href="pages/notes.html"><i class="bi bi-journal-text"></i> Notes</a>
+                    <a href="pages/project.html"><i class="bi bi-kanban"></i> Project</a>
+                    <a href="pages/calendar.html"><i class="bi bi-calendar3"></i> Calendar</a>
+                    <a href="pages/financial.html"><i class="bi bi-wallet2"></i> Financial</a>
+                    <a href="pages/social.html"><i class="bi bi-chat-heart"></i> Social</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-row">
+                        <span><i class="bi bi-telephone"></i></span>
+                        <p>+20 123 456 7890</p>
+                    </div>
+                    <div class="contact-row">
+                        <span><i class="bi bi-envelope"></i></span>
+                        <p>support@yombyom.com</p>
+                    </div>
+                    <div class="contact-row">
+                        <span><i class="bi bi-geo-alt"></i></span>
+                        <p>Cairo, Egypt</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <p><i class="bi bi-c-circle"></i> 2026 YOM-B-YOM. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- JavaScript -->
+    <script src="./js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Dashboard - Projects</title>
+
+    <!-- Google Fonts: Space Grotesk & Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <header class="sidebar-mobile-header">
+        <a href="../index.html" class="logo">Yom-B-Yom</a>
+        <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </button>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="../index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+                <span>Yom-B-Yom</span>
+            </a>
+
+            <!-- Logged-in User Profile Widget -->
+            <div class="sidebar-user-box logged-in">
+                <a href="profile.html" class="sidebar-user-info">
+                    <div class="sidebar-avatar">U</div>
+                    <div class="sidebar-user-details">
+                        <span class="sidebar-user-name">Friend</span>
+                        <span class="sidebar-user-badge">Active Member</span>
+                    </div>
+                </a>
+                <button class="sidebar-logout-btn" type="button" title="Sign Out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>Home</span>
+                </a>
+                <a href="To Do List.html" class="nav-item">
+                    <i class="bi bi-check2-square"></i>
+                    <span>To Do List</span>
+                </a>
+                <a href="notes.html" class="nav-item">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="project.html" class="nav-item active">
+                    <i class="bi bi-kanban-fill"></i>
+                    <span>Project</span>
+                </a>
+                <a href="calendar.html" class="nav-item">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="financial.html" class="nav-item">
+                    <i class="bi bi-wallet2"></i>
+                    <span>Financial</span>
+                </a>
+                <a href="social.html" class="nav-item">
+                    <i class="bi bi-chat-heart-fill"></i>
+                    <span>Social</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-auth-buttons">
+                    <a href="sign-in.html#login" class="sidebar-auth-btn login">Login</a>
+                    <a href="sign-in.html#register" class="sidebar-auth-btn register">Register</a>
+                </div>
+
+                <div class="sidebar-theme-row">
+                    <button id="themeToggle" class="sidebar-theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-label">Theme</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container" style="padding-top: 10px;">
+
+        <div class="header-section">
+            <h1>My Projects</h1>
+            <p>Organize your projects, tasks and deadlines.</p>
+            <button id="addProjectBtn" type="button">+ New Project</button>
+        </div>
+
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Projects</h3>
+                <p id="totalProjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>In Progress</h3>
+                <p id="inProgress">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <p id="completedProjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Upcoming</h3>
+                <p id="upcomingProjects">0</p>
+            </div>
+
+        </div>
+
+
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Search projects...">
+            <button class="filter-btn active" data-filter="all" type="button">All</button>
+            <button class="filter-btn" data-filter="in-progress" type="button">In Progress</button>
+            <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+            <button class="filter-btn" data-filter="not-started" type="button">Not Started</button>
+        </div>
+
+
+        <div id="projectsContainer" class="projects-grid"></div>
+
+    </div>
+
+
+
+    <!-- Project -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Project</h2>
+
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" placeholder="Enter project name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <input type="text" id="projectDescription" placeholder="Enter project description">
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDeadline">Deadline</label>
+                    <input type="date" id="projectDeadline">
+                </div>
+
+                <div class="form-group">
+                    <label for="projectStatus">Status</label>
+                    <select id="projectStatus">
+                        <option value="not-started">Not Started</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectProgress">Progress</label>
+                    <input type="range" id="projectProgress" min="0" max="100" value="0">
+                    <p><span id="progressValue">0</span>%</p>
+                </div>
+
+                <button type="submit">Save Project</button>
+                <button type="button" id="closeModal">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- Project -->
+
+
+    <!-- Task -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h2>Add Task</h2>
+
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskName">Task Name</label>
+                    <input type="text" id="taskName" placeholder="Enter task name" required>
+                </div>
+
+                <button type="submit">Add Task</button>
+                <button type="button" id="closeTaskModal">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- Task -->
+
+
+
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/project.js"></script>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

@@ -33,6 +33,7 @@ let notifications = [
 function renderNotifications() {
     const listContainer = document.getElementById('notifications-list');
     const unreadBadge = document.getElementById('unread-count');
+    if (!listContainer || !unreadBadge) return;
     
     listContainer.innerHTML = '';
     

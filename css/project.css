@@ -922,3 +922,53 @@ body.dark-mode .delete-btn {
     }
 
 }
+
+/* Dark Mode Overrides for Project Page */
+body.dark-mode .header-section h1 {
+    color: var(--swatch-pale-sand);
+}
+
+body.dark-mode .header-section p {
+    color: var(--swatch-sand);
+}
+
+body.dark-mode .header-section button {
+    background-color: var(--swatch-sand);
+    color: var(--swatch-mahogany);
+}
+
+body.dark-mode .card,
+body.dark-mode .project-card,
+body.dark-mode .modal-content {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .project-card h3,
+body.dark-mode .modal-content h2 {
+    color: var(--swatch-pale-sand);
+}
+
+body.dark-mode .card p,
+body.dark-mode .project-card p {
+    color: var(--swatch-sand);
+}
+
+body.dark-mode .filter-btn {
+    background-color: var(--bg-card);
+    color: var(--swatch-sand);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .filter-btn.active {
+    background-color: var(--swatch-sand);
+    color: var(--swatch-mahogany);
+}
+
+body.dark-mode #searchInput {
+    background-color: var(--bg-card);
+    color: var(--swatch-pale-sand);
+    border-color: var(--border-color);
+}

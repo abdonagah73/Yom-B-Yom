@@ -6,37 +6,37 @@
    ========================================================= */
 
 :root {
-  /* Warm Light Aesthetic Palette (Matching Home) */
-  --cal-bg-color: #BFA486;          /* Warm Sandy Beige / Home Main BG */
-  --cal-bg-subtle: #F2D7C7;        /* Soft Peach Biscuit */
-  --cal-panel-bg: #FFFDF9;         /* Creamy Warm White */
-  --cal-card-bg: #F5EBE1;          /* Soft Beige Card */
-  --cal-card-hover: #EBDAC9;       /* Hover Shade */
-  --cal-border-color: #D8C4B2;     /* Muted Caramel Border */
-  --cal-text-color: #3E2E23;       /* Rich Deep Coffee Text */
-  --cal-text-muted: #7A5C4D;       /* Muted Warm Brown */
-  --cal-accent-color: #6F4E3D;     /* Brand Primary Coffee */
-  --cal-accent-warm: #A97955;      /* Warm Terracotta / Caramel */
-  --cal-circle-default: #EBD8C8;   /* Default Circle Slot */
+  /* Warm Light Aesthetic Palette (Matching Swatches) */
+  --cal-bg-color: var(--bg-main, #DEC8B0);
+  --cal-bg-subtle: var(--bg-subtle, #D2BA9F);
+  --cal-panel-bg: var(--bg-card, #EAD8C4);
+  --cal-card-bg: var(--bg-card-alt, #E0CEB9);
+  --cal-card-hover: #D6C0A8;
+  --cal-border-color: var(--border-color, rgba(43, 24, 9, 0.18));
+  --cal-text-color: var(--text-primary, #2B1809);
+  --cal-text-muted: var(--text-muted, #6B4628);
+  --cal-accent-color: var(--primary, #5C3A1D);
+  --cal-accent-warm: var(--accent, #B87333);
+  --cal-circle-default: #EDCDAF;
   
-  --cal-font-title: 'Chewy', cursive, sans-serif;
-  --cal-font-serif: 'Playfair Display', Georgia, serif;
-  --cal-font-body: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+  --cal-font-title: 'Chewy', 'Space Grotesk', cursive, sans-serif;
+  --cal-font-serif: 'Space Grotesk', sans-serif;
+  --cal-font-body: 'Space Grotesk', sans-serif;
 }
 
 /* Dark Mode Override */
 body.dark-mode {
-  --cal-bg-color: #241A14;
-  --cal-bg-subtle: #2F221B;
-  --cal-panel-bg: #2E2018;
-  --cal-card-bg: #3D2B21;
-  --cal-card-hover: #4D372B;
-  --cal-border-color: #5A4032;
-  --cal-text-color: #F8F5F0;
-  --cal-text-muted: #C0A587;
-  --cal-accent-color: #D49A6A;
-  --cal-accent-warm: #E2BA97;
-  --cal-circle-default: #4A3528;
+  --cal-bg-color: var(--bg-main, #140D07);
+  --cal-bg-subtle: var(--bg-subtle, #1C130A);
+  --cal-panel-bg: var(--bg-card, #22170D);
+  --cal-card-bg: var(--bg-card-alt, #2D1F12);
+  --cal-card-hover: #382717;
+  --cal-border-color: var(--border-color, rgba(255, 236, 198, 0.15));
+  --cal-text-color: var(--text-primary, #FFECC6);
+  --cal-text-muted: var(--text-muted, #CFB595);
+  --cal-accent-color: var(--primary, #EDCDAF);
+  --cal-accent-warm: var(--accent, #F7AE62);
+  --cal-circle-default: #2D1F12;
 }
 
 body {
@@ -55,18 +55,22 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px 60px;
+  align-items: center;
+  min-height: calc(100vh - 40px);
+  padding: 24px 20px 40px;
   width: 100%;
+  margin: 0 auto;
 }
 
 /* Main Page Layout */
 .page-layout {
   display: flex;
-  gap: 30px;
-  max-width: 1250px;
+  gap: 28px;
+  max-width: 1100px;
   width: 100%;
+  margin: 0 auto;
   align-items: stretch;
+  justify-content: center;
 }
 
 /* ------------------------------
@@ -75,7 +79,7 @@ body {
 .right-panel {
   flex: 1.15;
   background-color: var(--cal-panel-bg);
-  padding: 35px 30px;
+  padding: 30px 26px;
   border-radius: 24px;
   border: 1.5px solid var(--cal-border-color);
   box-shadow: 0 10px 30px rgba(62, 46, 35, 0.12);
@@ -98,12 +102,69 @@ body {
   justify-content: space-between;
   width: 100%;
   max-width: 480px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.cal-month-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.cal-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--cal-card-bg);
+  border: 1.5px solid var(--cal-border-color);
+  color: var(--cal-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex-shrink: 0;
+}
+
+.cal-nav-btn:hover {
+  background: var(--cal-accent-warm);
+  color: #FFFDF9;
+  border-color: var(--cal-accent-warm);
+  transform: scale(1.08);
+}
+
+.cal-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.cal-today-btn {
+  background: rgba(184, 115, 51, 0.14);
+  border: 1px solid var(--cal-accent-warm);
+  color: var(--cal-accent-color);
+  padding: 3px 10px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cal-today-btn:hover {
+  background: var(--cal-accent-warm);
+  color: #FFFFFF;
 }
 
 .section-title {
   font-family: var(--cal-font-title);
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 500;
   letter-spacing: 0.8px;
   color: var(--cal-accent-color);
@@ -114,7 +175,7 @@ body {
 .section-subtitle {
   font-size: 13.5px;
   color: var(--cal-text-muted);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: 500;
 }
@@ -129,7 +190,7 @@ body {
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .day-header {
@@ -145,7 +206,7 @@ body {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 12px 8px;
+  gap: 10px 8px;
   text-align: center;
 }
 
@@ -154,10 +215,11 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  padding: 8px 0;
+  padding: 6px 0;
   border-radius: 14px;
   transition: all 0.25s ease;
   border: 1.5px solid transparent;
+  position: relative;
 }
 
 .day-cell:hover {
@@ -171,12 +233,28 @@ body {
   box-shadow: 0 4px 12px rgba(111, 78, 61, 0.15);
 }
 
+.day-cell.is-today {
+  border-color: var(--cal-accent-warm);
+  background: rgba(184, 115, 51, 0.08);
+}
+
+.day-cell.is-today .day-number {
+  color: var(--cal-accent-warm);
+  font-weight: 700;
+}
+
+.day-cell.empty-cell {
+  pointer-events: none;
+  opacity: 0;
+  cursor: default;
+}
+
 .circle-slot {
   width: 44px;
   height: 44px;
   background-color: var(--cal-circle-default);
   border-radius: 50%;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,7 +265,7 @@ body {
 }
 
 .day-number {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--cal-text-color);
 }
@@ -592,25 +670,124 @@ body {
 @media (max-width: 950px) {
   .page-layout {
     flex-direction: column;
+    gap: 24px;
   }
-  .mood-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .calendar-main-wrapper {
+    padding: 20px 14px 40px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .calendar-main-wrapper {
+    padding: 14px 10px 30px;
+  }
+
+  .right-panel {
+    padding: 20px 10px;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .left-panel {
+    width: 100%;
+  }
+
+  .calendar-top-bar {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .cal-nav-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    letter-spacing: 0.3px;
+  }
+
+  .cal-today-btn {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .calendar {
+    width: 100%;
+  }
+
+  .calendar-headers {
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+
+  .day-header {
+    font-size: 10.5px;
+    padding-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+
   .calendar-grid {
-    gap: 8px 4px;
+    gap: 6px 2px;
+    justify-items: center;
+  }
+
+  .day-cell {
+    padding: 2px 0;
+    width: 100%;
+  }
+
+  .circle-slot {
+    width: clamp(30px, 8.5vw, 38px);
+    height: clamp(30px, 8.5vw, 38px);
+    margin-bottom: 2px;
+  }
+
+  .day-number {
+    font-size: 12px;
+  }
+
+  .encouragement-box,
+  .gallery-box,
+  .notes-box {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
+  .encouragement-box h3,
+  .gallery-header h3,
+  .notes-box-header h3 {
+    font-size: 20px;
+  }
+
+  .mood-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 8px;
+  }
+
+  .face {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-title {
+    font-size: 19px;
   }
   .circle-slot {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
   }
   .day-header {
-    font-size: 11px;
-  }
-  .section-title {
-    font-size: 28px;
+    font-size: 9.5px;
   }
   .mood-grid {
     grid-template-columns: repeat(2, 1fr);

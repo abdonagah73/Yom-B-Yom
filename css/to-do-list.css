@@ -5,56 +5,56 @@
    - Clean Sidebar, Pomodoro Timer, Progress & Tasks
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --brown-950: #2d1b15;
-    --brown-900: #3b241c;
-    --brown-800: #4d2f25;
+    --brown-950: #2B1809;
+    --brown-900: #3B241C;
+    --brown-800: #4D2F25;
     --brown-700: #604033;
     --brown: #765043;
-    --caramel: #b97950;
-    --caramel-dark: #9d6040;
+    --caramel: #B87333;
+    --caramel-dark: #9D6040;
 
-    --cream: #f5ebe2;
-    --cream-dark: #ead9ca;
-    --card: #fffaf6;
-    --card-2: #f9f0e9;
+    --cream: var(--bg-main, #DEC8B0);
+    --cream-dark: var(--bg-subtle, #D2BA9F);
+    --card: var(--bg-card, #EAD8C4);
+    --card-2: var(--bg-card-alt, #E0CEB9);
 
-    --text: #30201a;
-    --muted: #846f63;
+    --text: var(--text-primary, #2B1809);
+    --muted: var(--text-muted, #6B4628);
 
-    --green: #668d70;
-    --green-light: #e2eee4;
+    --green: #4E7C59;
+    --green-light: #E0EDE3;
 
-    --red: #c8615d;
-    --red-light: #f6dddd;
+    --red: #C8615D;
+    --red-light: #F6DDDD;
 
-    --yellow: #c7924b;
-    --yellow-light: #f4e6cc;
+    --yellow: #C7924B;
+    --yellow-light: #F4E6CC;
 
-    --border: #e5d1c1;
+    --border: rgba(43, 24, 9, 0.18);
 
-    --shadow: 0 15px 35px rgba(67, 42, 31, 0.10);
+    --shadow: 0 10px 30px rgba(43, 24, 9, 0.12);
     --radius: 22px;
 
     /* Unified Website Typography */
-    --font-title: "Chewy", system-ui, cursive, sans-serif;
-    --font-body: "Poppins", "Nunito", sans-serif;
+    --font-title: "Chewy", "Space Grotesk", cursive, sans-serif;
+    --font-body: "Space Grotesk", sans-serif;
 }
 
 /* Dark Mode Tokens */
 body.dark-mode {
-    --brown-950: #f8f5f0;
-    --brown-900: #ead8c0;
-    --cream: #241a14;
-    --cream-dark: #2f221b;
-    --card: #2e2018;
-    --card-2: #38281f;
-    --text: #f8f5f0;
-    --muted: #c0a587;
-    --border: #4a3328;
-    --shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    --brown-950: #FFECC6;
+    --brown-900: #EDCDAF;
+    --cream: var(--bg-main, #140D07);
+    --cream-dark: var(--bg-subtle, #1C130A);
+    --card: var(--bg-card, #22170D);
+    --card-2: var(--bg-card-alt, #2D1F12);
+    --text: var(--text-primary, #FFECC6);
+    --muted: var(--text-muted, #CFB595);
+    --border: rgba(255, 236, 198, 0.15);
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
 }
 
 * {
@@ -107,201 +107,13 @@ h6 {
 }
 
 
-/* ================= SIDEBAR ================= */
-
-.sidebar {
-    width: 235px;
-    min-width: 235px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    padding: 24px 14px 20px;
-    background: linear-gradient(180deg,
-            #402C21,
-            #2D1B15);
-    color: white;
-    z-index: 900;
-    overflow-y: auto;
-}
-
-.sidebar-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 8px 20px;
-    font-family: var(--font-title);
-    font-size: 26px;
-    letter-spacing: 0.8px;
-    color: #EAD8C0;
-    text-decoration: none;
-    transition: transform 0.25s ease;
-}
-
-.sidebar-logo:hover {
-    color: #FAF0E6;
-    transform: scale(1.03);
-}
-
-.sidebar-logo-icon {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 11px;
-    background: rgba(255, 255, 255, 0.18);
-    color: #EAD8C0;
-    font-size: 17px;
-}
-
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 9px 12px;
-    color: rgba(255, 255, 255, 0.78);
-    text-decoration: none;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: 0.25s ease;
-}
-
-.nav-item span {
-    font-family: var(--font-title);
-    font-size: 18px;
-    letter-spacing: 0.5px;
-}
-
-.nav-item i {
-    width: 20px;
-    font-size: 16px;
-}
-
-.nav-item:hover,
-.nav-item.active {
-    color: white;
-    background: rgba(255, 255, 255, 0.17);
-    transform: translateX(3px);
-}
-
-.sidebar-bottom {
-    margin-top: auto;
-    padding-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.sidebar-auth-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-
-.sidebar-auth-btn {
-    text-align: center;
-    padding: 6px 10px;
-    border-radius: 12px;
-    font-family: var(--font-title);
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sidebar-auth-btn.login {
-    background: #543C32;
-    color: #EAD8C0;
-    border: 1px solid #8B6E5E;
-}
-
-.sidebar-auth-btn.login:hover {
-    background: #6F4E3D;
-    color: #FAF0E6;
-}
-
-.sidebar-auth-btn.register {
-    background: #A97955;
-    color: #FFFDF9;
-    border: 1px solid #A97955;
-}
-
-.sidebar-auth-btn.register:hover {
-    background: #8F6245;
-}
-
-.sidebar-theme-row {
-    width: 100%;
-}
-
-.sidebar-theme-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 7px 12px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    color: #EAD8C0;
-    font-family: var(--font-title);
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.sidebar-theme-btn:hover {
-    background: rgba(255, 255, 255, 0.18);
-    color: #FFFDF9;
-    transform: translateY(-1px);
-}
-
-.mini-quote {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 11px;
-    font-weight: 500;
-}
-
-.mini-quote span {
-    font-family: var(--font-title);
-    font-size: 14px;
-    letter-spacing: 0.4px;
-}
-
-.mini-quote i {
-    color: #e8bc91;
-    font-size: 14px;
-}
-
-
 /* ================= MAIN CONTENT ================= */
 
 .main-content {
     flex: 1;
     min-width: 0;
-    width: auto;
-    margin-left: 0;
+    width: calc(100% - 250px);
+    margin-left: 250px;
     padding: 28px 32px 45px;
 }
 
@@ -1699,57 +1511,6 @@ body.dark-mode .form-group textarea {
 
 @media (max-width: 850px) {
 
-    /* ---------- Sidebar ---------- */
-
-    .sidebar {
-        width: 72px;
-        min-width: 72px;
-        padding: 20px 8px;
-        align-items: center;
-    }
-
-    .sidebar-logo {
-        justify-content: center;
-        padding-bottom: 20px;
-    }
-
-    .sidebar-logo span,
-    .nav-item span,
-    .mini-quote,
-    .sidebar-bottom {
-        display: none;
-    }
-
-    .sidebar-logo-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .sidebar-nav {
-        width: 100%;
-        align-items: center;
-    }
-
-    .nav-item {
-        width: 100%;
-        height: 46px;
-        padding: 0;
-        justify-content: center;
-        border-radius: 13px;
-        transform: none;
-    }
-
-    .nav-item:hover,
-    .nav-item.active {
-        transform: none;
-    }
-
-    .nav-item i {
-        width: auto;
-        font-size: 18px;
-    }
-
-
     /* ---------- Main ---------- */
 
     .main-content {
@@ -1830,87 +1591,12 @@ body.dark-mode .form-group textarea {
 
 @media (max-width: 560px) {
 
-    /* ---------- Bottom Navigation ---------- */
-
-    body {
-        padding-bottom: 84px;
-    }
-
-    .sidebar {
-        position: fixed;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-
-        width: auto;
-        min-width: 0;
-        height: 64px;
-
-        padding: 7px 8px;
-
-        border-radius: 20px;
-
-        flex-direction: row;
-        align-items: center;
-
-        overflow: hidden;
-
-        box-shadow: 0 10px 30px rgba(45, 27, 21, 0.25);
-    }
-
-    .sidebar-logo,
-    .sidebar-bottom {
-        display: none;
-    }
-
-    .sidebar-nav {
-        width: 100%;
-        height: 100%;
-
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-
-        gap: 3px;
-    }
-
-    .nav-item {
-        width: auto;
-        height: 48px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding: 0;
-
-        border-radius: 14px;
-
-        transform: none !important;
-    }
-
-    .nav-item span {
-        display: none;
-    }
-
-    .nav-item i {
-        width: auto;
-        font-size: 18px;
-    }
-
-    .nav-item:hover,
-    .nav-item.active {
-        transform: none;
-    }
-
-
     /* ---------- Main ---------- */
 
     .main-content {
         width: 100%;
         margin-left: 0;
-
         padding: 16px 12px 25px;
-
         min-width: 0;
     }
 
@@ -1919,10 +1605,8 @@ body.dark-mode .form-group textarea {
 
     .top-header {
         width: 100%;
-
         flex-direction: column;
         align-items: stretch;
-
         gap: 14px;
     }
 
@@ -1936,10 +1620,8 @@ body.dark-mode .form-group textarea {
 
     .header-actions {
         width: 100%;
-
         display: grid;
         grid-template-columns: minmax(0, 1fr) 40px 40px;
-
         gap: 7px;
     }
 
@@ -1981,7 +1663,6 @@ body.dark-mode .form-group textarea {
     .tasks-card {
         width: 100%;
         min-width: 0;
-
         padding: 18px 14px;
     }
 
@@ -1991,7 +1672,6 @@ body.dark-mode .form-group textarea {
     .calendar-card {
         width: 100%;
         min-width: 0;
-
         padding: 18px 14px;
     }
 
@@ -2009,7 +1689,6 @@ body.dark-mode .form-group textarea {
 
     .calendar-day {
         height: 38px;
-
         font-size: 12px;
     }
 
@@ -2040,16 +1719,6 @@ body.dark-mode .form-group textarea {
     .main-content {
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .sidebar {
-        left: 6px;
-        right: 6px;
-        bottom: 6px;
-    }
-
-    .nav-item i {
-        font-size: 16px;
     }
 
     .calendar-day {

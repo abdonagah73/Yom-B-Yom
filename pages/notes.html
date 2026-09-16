@@ -11,60 +11,103 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Space Grotesk & Chewy -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/notes.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/notes.css">
 </head>
 <body>
 
-    <!-- Navbar Start -->
-    <nav class="navbar">
-    <div class="container nav-container">
-    <a href="index.html" class="logo">Yom-B-Yom</a>
+    <!-- Mobile Header -->
+    <header class="sidebar-mobile-header">
+        <a href="../index.html" class="logo">Yom-B-Yom</a>
+        <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </button>
+    </header>
 
-    <ul class="nav-links" id="navLinks">
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="../index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+                <span>Yom-B-Yom</span>
+            </a>
 
-    <li><a href="index.html">Home</a></li>
+            <!-- Logged-in User Profile Widget -->
+            <div class="sidebar-user-box logged-in">
+                <a href="profile.html" class="sidebar-user-info">
+                    <div class="sidebar-avatar">U</div>
+                    <div class="sidebar-user-details">
+                        <span class="sidebar-user-name">Friend</span>
+                        <span class="sidebar-user-badge">Active Member</span>
+                    </div>
+                </a>
+                <button class="sidebar-logout-btn" type="button" title="Sign Out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
 
-    <!-- Person 1 -->
-    <li><a href="To Do List.html">To Do List</a></li>
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>Home</span>
+                </a>
+                <a href="To Do List.html" class="nav-item">
+                    <i class="bi bi-check2-square"></i>
+                    <span>To Do List</span>
+                </a>
+                <a href="notes.html" class="nav-item active">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="project.html" class="nav-item">
+                    <i class="bi bi-kanban-fill"></i>
+                    <span>Project</span>
+                </a>
+                <a href="calendar.html" class="nav-item">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="financial.html" class="nav-item">
+                    <i class="bi bi-wallet2"></i>
+                    <span>Financial</span>
+                </a>
+                <a href="social.html" class="nav-item">
+                    <i class="bi bi-chat-heart-fill"></i>
+                    <span>Social</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
 
-    <!-- Person 2 -->
-    <li><a href="notes.html" class="active">Notes</a></li>
+            <div class="sidebar-bottom">
+                <div class="sidebar-auth-buttons">
+                    <a href="sign-in.html#login" class="sidebar-auth-btn login">Login</a>
+                    <a href="sign-in.html#register" class="sidebar-auth-btn register">Register</a>
+                </div>
 
-    <!-- Person 3 -->
-    <li><a href="project.html">Project</a></li>
+                <div class="sidebar-theme-row">
+                    <button id="themeToggle" class="sidebar-theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-label">Theme</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
 
-    <!-- Person 4 -->
-    <li><a href="calendar.html">Calendar</a></li>
-
-    <!-- Financial -->
-    <li><a href="financial.html">Financial</a></li>
-
-    <!-- Person 5 -->
-    <li><a href="social.html">Social</a></li>
-    </ul>
-
-    <div class="nav-buttons">
-    <a href="sign-in.html#login" class="login-btn">Login</a>
-    <a href="sign-in.html#register" class="register-btn">Register</a>
-    <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-icon" aria-hidden="true">🌙</span></button>
-    <button id="menuToggle" class="menu-btn">☰</button>
-    </div>
-    </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-
-    <!-- start section1 -->
-    <main class="container py-4">
+        <!-- Main Content -->
+        <main class="main-content">
 
         <!-- Board Section Start -->
         <section id="board-section" class="board-section-container mb-5">
@@ -130,7 +173,7 @@
         <!-- start section2 -->
         <section id="habits-section" class="habits-wrapper">
             
-            <div class="habit-progress-card p-3 mb-4 rounded-4 shadow-sm bg-white border">
+            <div class="habit-progress-card p-3 mb-4 rounded-4 shadow-sm">
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
                     <div>
                         <h4 class="mb-0 text-brown-dark">Today's Habits Progress</h4>
@@ -151,7 +194,7 @@
 
             <div class="row g-4">
                 <div class="col-12 col-lg-4">
-                    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div class="habit-card p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                         <div>
                             <input type="text" class="habit-title-input" value="Coding & Problem Solving" placeholder="Habit Title...">
                             <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Web development, practice coding challenges, and building daily projects.</textarea>
@@ -176,7 +219,7 @@
                 </div>
 
                 <div class="col-12 col-lg-4">
-                    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div class="habit-card p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                         <div>
                             <input type="text" class="habit-title-input" value="Workout & Fitness" placeholder="Habit Title...">
                             <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Gym workouts, cardio running, stretching routines, and staying well hydrated.</textarea>
@@ -201,7 +244,7 @@
                 </div>
 
                 <div class="col-12 col-lg-4">
-                    <div class="habit-card p-4 rounded-4 bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div class="habit-card p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                         <div>
                             <input type="text" class="habit-title-input" value="Reading Books" placeholder="Habit Title...">
                             <textarea class="habit-desc-input" rows="3" placeholder="Habit Details...">Read 20-30 pages of mindset, self-improvement, or tech documentation.</textarea>
@@ -228,12 +271,12 @@
         </section>
         <!-- end section2 -->
 
-    </main>
-    <!-- end section1 -->
+        </main>
+    </div>
 
     <!-- JavaScript -->
-    <script src="./js/script.js"></script>
-    <script src="./js/notes.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/notes.js"></script>
 
 </body>
 </html>

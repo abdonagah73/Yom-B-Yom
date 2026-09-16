@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yom-B-Yom | Notifications</title>
+
+    <!-- Google Fonts: Space Grotesk & Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+
+    <style>
+        .notifications-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px 0 40px;
+        }
+
+        .notifications-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .badge {
+            background: var(--swatch-mocha);
+            color: var(--swatch-pale-sand);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        body.dark-mode .badge {
+            background: var(--swatch-sand);
+            color: var(--swatch-mahogany);
+        }
+
+        .btn-mark-all {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-mark-all:hover {
+            background: var(--border-light);
+            color: var(--primary-hover);
+        }
+
+        .notifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .notification-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .notification-item.unread {
+            background: var(--bg-card-alt);
+            border-left: 4px solid var(--accent);
+        }
+
+        .notification-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background: var(--border-light);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .notification-info {
+            flex: 1;
+        }
+
+        .notification-info p {
+            margin: 0 0 4px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .notification-info .time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <header class="sidebar-mobile-header">
+        <a href="../index.html" class="logo">Yom-B-Yom</a>
+        <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </button>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="../index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+                <span>Yom-B-Yom</span>
+            </a>
+
+            <!-- Logged-in User Profile Widget -->
+            <div class="sidebar-user-box logged-in">
+                <a href="profile.html" class="sidebar-user-info">
+                    <div class="sidebar-avatar">U</div>
+                    <div class="sidebar-user-details">
+                        <span class="sidebar-user-name">Friend</span>
+                        <span class="sidebar-user-badge">Active Member</span>
+                    </div>
+                </a>
+                <button class="sidebar-logout-btn" type="button" title="Sign Out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>Home</span>
+                </a>
+                <a href="To Do List.html" class="nav-item">
+                    <i class="bi bi-check2-square"></i>
+                    <span>To Do List</span>
+                </a>
+                <a href="notes.html" class="nav-item">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="project.html" class="nav-item">
+                    <i class="bi bi-kanban-fill"></i>
+                    <span>Project</span>
+                </a>
+                <a href="calendar.html" class="nav-item">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="financial.html" class="nav-item">
+                    <i class="bi bi-wallet2"></i>
+                    <span>Financial</span>
+                </a>
+                <a href="social.html" class="nav-item">
+                    <i class="bi bi-chat-heart-fill"></i>
+                    <span>Social</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-auth-buttons">
+                    <a href="sign-in.html#login" class="sidebar-auth-btn login">Login</a>
+                    <a href="sign-in.html#register" class="sidebar-auth-btn register">Register</a>
+                </div>
+
+                <div class="sidebar-theme-row">
+                    <button id="themeToggle" class="sidebar-theme-btn" type="button">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-label">Theme</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="notifications-wrapper">
+                <div class="notifications-card">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <div class="header-title">
+                            <h2>Notifications</h2>
+                            <span class="badge" id="unread-count">0</span>
+                        </div>
+                        <button class="btn-mark-all" onclick="markAllAsRead()">Mark all as read</button>
+                    </div>
+
+                    <!-- Notifications Area -->
+                    <div class="notifications-list" id="notifications-list">
+                        <!-- Data rendered dynamically from JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+    <script src="../js/notifications.js"></script>
+</body>
+</html>

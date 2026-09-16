@@ -10,33 +10,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Unified Website Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Space Grotesk & Chewy -->
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/to-do-list.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/to-do-list.css">
 </head>
 
 <body>
+
+    <!-- Mobile Header -->
+    <header class="sidebar-mobile-header">
+        <a href="../index.html" class="logo">Yom-B-Yom</a>
+        <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+        </button>
+    </header>
 
     <div class="dashboard">
 
         <aside class="sidebar">
 
-            <a href="index.html" class="sidebar-logo">
+            <a href="../index.html" class="sidebar-logo">
                 <div class="sidebar-logo-icon">
                     <i class="bi bi-heart-fill"></i>
                 </div>
                 <span>Yom-B-Yom</span>
             </a>
 
+            <!-- Logged-in User Profile Widget -->
+            <div class="sidebar-user-box logged-in">
+                <a href="profile.html" class="sidebar-user-info">
+                    <div class="sidebar-avatar">U</div>
+                    <div class="sidebar-user-details">
+                        <span class="sidebar-user-name">Friend</span>
+                        <span class="sidebar-user-badge">Active Member</span>
+                    </div>
+                </a>
+                <button class="sidebar-logout-btn" type="button" title="Sign Out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+
             <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item">
+                <a href="../index.html" class="nav-item">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
@@ -70,6 +93,11 @@
                     <i class="bi bi-chat-heart-fill"></i>
                     <span>Social</span>
                 </a>
+
+                <a href="profile.html" class="nav-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
             </nav>
 
             <div class="sidebar-bottom">
@@ -81,7 +109,7 @@
                 <div class="sidebar-theme-row">
                     <button id="themeToggle" class="sidebar-theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
                         <span class="theme-icon">🌙</span>
-                        <span>Theme</span>
+                        <span class="theme-label">Theme</span>
                     </button>
                 </div>
 
@@ -508,8 +536,8 @@
 </div>
 
 
-    <script src="js/script.js"></script>
-    <script src="js/to-do-list.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/to-do-list.js"></script>
 
 </body>
 

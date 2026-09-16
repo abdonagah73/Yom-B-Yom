@@ -5,44 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yom-B-Yom | Financial & Shared Vault</title>
 
-  <!-- Google Fonts for Unified Typography -->
+  <!-- Google Fonts: Space Grotesk & Chewy -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Core & Page Stylesheets -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/financial.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/financial.css">
 </head>
 <body>
 
-  <!-- Navbar Start -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Yom-B-Yom</a>
+  <!-- Mobile Header -->
+  <header class="sidebar-mobile-header">
+    <a href="../index.html" class="logo">Yom-B-Yom</a>
+    <button class="sidebar-mobile-toggle" aria-label="Toggle Navigation">
+      <i class="bi bi-list"></i>
+      <span>Menu</span>
+    </button>
+  </header>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="To Do List.html">To Do List</a></li>
-        <li><a href="notes.html">Notes</a></li>
-        <li><a href="project.html">Project</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="financial.html" class="active">Financial</a></li>
-        <li><a href="social.html">Social</a></li>
-      </ul>
+  <div class="dashboard-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../index.html" class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <span>Yom-B-Yom</span>
+      </a>
 
-      <div class="nav-buttons">
-        <a href="sign-in.html#login" class="login-btn">Login</a>
-        <a href="sign-in.html#register" class="register-btn">Register</a>
-        <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-icon" aria-hidden="true">🌙</span></button>
-        <button id="menuToggle" class="menu-btn">☰</button>
+      <!-- Logged-in User Profile Widget -->
+      <div class="sidebar-user-box logged-in">
+        <a href="profile.html" class="sidebar-user-info">
+          <div class="sidebar-avatar">U</div>
+          <div class="sidebar-user-details">
+            <span class="sidebar-user-name">Friend</span>
+            <span class="sidebar-user-badge">Active Member</span>
+          </div>
+        </a>
+        <button class="sidebar-logout-btn" type="button" title="Sign Out">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
       </div>
-    </div>
-  </nav>
-  <!-- Navbar End -->
 
-  <main class="budget-main-wrapper">
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Home</span>
+        </a>
+        <a href="To Do List.html" class="nav-item">
+          <i class="bi bi-check2-square"></i>
+          <span>To Do List</span>
+        </a>
+        <a href="notes.html" class="nav-item">
+          <i class="bi bi-journal-text"></i>
+          <span>Notes</span>
+        </a>
+        <a href="project.html" class="nav-item">
+          <i class="bi bi-kanban-fill"></i>
+          <span>Project</span>
+        </a>
+        <a href="calendar.html" class="nav-item">
+          <i class="bi bi-calendar3"></i>
+          <span>Calendar</span>
+        </a>
+        <a href="financial.html" class="nav-item active">
+          <i class="bi bi-wallet2"></i>
+          <span>Financial</span>
+        </a>
+        <a href="social.html" class="nav-item">
+          <i class="bi bi-chat-heart-fill"></i>
+          <span>Social</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-auth-buttons">
+          <a href="sign-in.html#login" class="sidebar-auth-btn login">Login</a>
+          <a href="sign-in.html#register" class="sidebar-auth-btn register">Register</a>
+        </div>
+
+        <div class="sidebar-theme-row">
+          <button id="themeToggle" class="sidebar-theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-label">Theme</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" style="padding-top: 15px;">
+      <div class="budget-main-wrapper" style="padding: 0;">
     <div class="page-layout">
       
       <!-- 1. LEFT PANEL: Main Budget & Wishlist Auto-Deduct -->
@@ -84,8 +147,8 @@
           <h3 class="section-title">Fixed Monthly Bills</h3>
           
           <div class="input-row">
-            <input type="text" id="bill-name" class="form-input" placeholder="Bill Name (e.g. Rent, Internet)">
-            <input type="number" id="bill-amount" class="form-input" placeholder="Amount ($)" style="max-width: 130px;">
+            <input type="text" id="bill-name" class="form-input input-name" placeholder="Bill Name (e.g. Rent, Internet)">
+            <input type="number" id="bill-amount" class="form-input input-amount" placeholder="Amount ($)">
             <button class="add-btn" id="add-bill-btn" type="button">Add Bill</button>
           </div>
 
@@ -102,8 +165,8 @@
           </h3>
           
           <div class="input-row">
-            <input type="text" id="wish-name" class="form-input" placeholder="Item Name (e.g. Autumn Coat, Coffee Beans)">
-            <input type="number" id="wish-amount" class="form-input" placeholder="Price ($)" style="max-width: 130px;">
+            <input type="text" id="wish-name" class="form-input input-name" placeholder="Item Name (e.g. Autumn Coat, Coffee Beans)">
+            <input type="number" id="wish-amount" class="form-input input-amount" placeholder="Price ($)">
             <button class="add-btn" id="add-wish-btn" type="button">Add to Wishlist</button>
           </div>
 
@@ -170,13 +233,13 @@
           <textarea id="budget-notes" class="form-input" style="flex: 1; min-height: 140px; resize: none; line-height: 1.6;" placeholder="Set personal savings rules (e.g. Try to keep $150 untouched at month end for emergency fund)..."></textarea>
         </div>
 
+        </div>
       </div>
-
-    </div>
-  </main>
+    </main>
+  </div>
 
   <!-- Scripts -->
-  <script src="./js/script.js"></script>
-  <script src="./js/financial.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/financial.js"></script>
 </body>
 </html>

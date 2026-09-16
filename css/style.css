@@ -1,75 +1,121 @@
- /* =========================================================
+/* =========================================================
    YOM-B-YOM GLOBAL STYLE SHEET
-   - Unified Color Palette (CSS Variables)
-   - Unified Typography (Chewy Font)
+   - Unified Brown Color Palette (Swatches: Pale Sand, Sand, Hazelnut,
+     Sable, Chamois, Maple, Camel, Café Au Lait, Taupe, Amber Brown,
+     Copper, Mocha, Mahogany, Cocoa, Umber)
+   - Typography: Space Grotesk & Chewy
+   - Enhanced Light & Dark Mode
    - Global Resets & Base Styles
-   - Dark Mode Support
-   - Reusable Utility Classes
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* ================= 1. GLOBAL DESIGN TOKENS ================= */
 :root {
-    /* Brand Colors - Warm Coffee & Earthy Palette */
-    --primary: #6F4E3D;
-    --primary-hover: #5F4036;
-    --primary-dark: #543C32;
-    --primary-darker: #402C21;
-    --secondary: #A68C7A;
-    --accent: #8B6E5E;
-    --light: #C6B49A;
-    --cream: #EAD8C0;
-    --cream-light: #FFFDF9;
-    --white: #FFFFFF;
+    /* Reference Brown Swatches */
+    --swatch-pale-sand: #FFECC6;
+    --swatch-sand: #EDCDAF;
+    --swatch-hazelnut: #CFB595;
+    --swatch-sable: #E0CDA9;
+    --swatch-chamois: #F7AE62;
+
+    --swatch-maple: #BB9351;
+    --swatch-camel: #C19A6B;
+    --swatch-cafe-au-lait: #A9846A;
+    --swatch-taupe: #B98663;
+    --swatch-amber-brown: #A6674C;
+
+    --swatch-copper: #B87333;
+    --swatch-mocha: #654321;
+    --swatch-mahogany: #420D09;
+    --swatch-cocoa: #412920;
+    --swatch-umber: #3D2D13;
+
+    /* Brand / Semantic Variables - LIGHT MODE */
+    --primary: #5C3A1D;         /* Deep Warm Mocha */
+    --primary-hover: #420D09;   /* Mahogany */
+    --primary-dark: #2B1809;    /* Umber */
+    --secondary: #9B765B;       /* Café Au Lait */
+    --accent: #B87333;          /* Copper */
+    --accent-warm: #E2994B;     /* Chamois */
     
-    /* Backgrounds */
-    --bg-main: #BFA486;
-    --bg-hero: #F2D7C7;
-    --bg-navbar: #402C21;
-    --bg-footer: #F2D7C7;
-    --bg-card: #FFFFFF;
+    /* Backgrounds - Light (Warm Latte/Sand with Unified Warm Mocha Navbar) */
+    --bg-main: #DEC8B0;
+    --bg-subtle: #D2BA9F;       /* Richer Sand */
+    --bg-card: #EAD8C4;
+    --bg-card-alt: #E0CEB9;
+    --bg-hero: #D6BEA5;
+    --bg-navbar: rgba(43, 28, 18, 0.97); /* Rich Warm Mocha Navbar */
+    --bg-navbar-solid: #2B1C12;
+    --bg-footer: #DEC8B0;       /* Light Warm Sand Footer matching Home */
+    --bg-sidebar: #2B1C12;      /* Rich Warm Mocha Sidebar */
+    --bg-input: #EAD8C4;
     
-    /* Typography & Text */
-    --font-main: "Chewy", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-body: "Chewy", system-ui, sans-serif;
-    --text-primary: #3E2E23;
-    --text-secondary: #543C32;
-    --text-muted: #6F4E3D;
-    --text-light: #EAD8C0;
-    --text-white: #FFFDF9;
+    /* Typography & High-Contrast Text */
+    --font-main: "Space Grotesk", sans-serif;
+    --font-body: "Space Grotesk", sans-serif;
+    --font-title: "Chewy", "Space Grotesk", sans-serif;
+    
+    --text-primary: #2B1809;    /* Deep Umber - crisp high contrast on light bg */
+    --text-secondary: #482B14;  /* Rich Mocha */
+    --text-muted: #6B4628;      /* Café Au Lait */
+    --text-light: #FFECC6;      /* Pale Sand */
+    --text-white: #FFFFFF;
     
     /* Borders & Shadows */
-    --border-color: rgba(140, 110, 94, 0.25);
-    --border-light: rgba(234, 216, 192, 0.25);
+    --border-color: rgba(43, 24, 9, 0.22);
+    --border-light: rgba(43, 24, 9, 0.12);
+    --border-focus: #B87333;
+    
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 20px;
     --radius-xl: 28px;
     --radius-full: 9999px;
     
-    --shadow-sm: 0 2px 6px rgba(62, 46, 35, 0.08);
-    --shadow-md: 0 8px 20px rgba(62, 46, 35, 0.15);
-    --shadow-lg: 0 16px 36px rgba(62, 46, 35, 0.22);
+    --shadow-sm: 0 2px 8px rgba(43, 24, 9, 0.08);
+    --shadow-md: 0 8px 24px rgba(43, 24, 9, 0.14);
+    --shadow-lg: 0 16px 40px rgba(43, 24, 9, 0.2);
     
     --transition-fast: 0.2s ease;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ================= 2. DARK MODE TOKENS ================= */
+/* ================= 2. DARK MODE TOKENS (Warm, Softened Dark Mocha) ================= */
 body.dark-mode {
-    --bg-main: #241A14;
-    --bg-hero: #2F221B;
-    --bg-navbar: #1F150F;
-    --bg-footer: #1F150F;
-    --bg-card: #2E2018;
+    --primary: #EDCDAF;         /* Sand */
+    --primary-hover: #FFECC6;   /* Pale Sand */
+    --primary-dark: #CFB595;
+    --secondary: #C19A6B;       /* Camel */
+    --accent: #F7AE62;          /* Chamois */
+    --accent-warm: #B87333;
     
-    --text-primary: #F8F5F0;
-    --text-secondary: #EAD8C0;
-    --text-muted: #C0A587;
+    /* Backgrounds - Softened Warm Dark Mocha (Fat'ah seka) */
+    --bg-main: #23180F;         /* Warm Dark Cocoa */
+    --bg-subtle: #2C1F15;       /* Subtle Warm Dark */
+    --bg-card: #332419;         /* Warm Card */
+    --bg-card-alt: #3D2B1E;     /* Card Alternate */
+    --bg-hero: #291C12;
+    --bg-navbar: rgba(43, 28, 18, 0.97); /* Rich Warm Mocha Navbar */
+    --bg-navbar-solid: #2B1C12;
+    --bg-footer: #1A110A;
+    --bg-sidebar: #2B1C12;
+    --bg-input: #332419;
     
-    --border-color: rgba(234, 216, 192, 0.15);
-    --border-light: rgba(255, 255, 255, 0.08);
+    /* Text - High Contrast Light Browns on Dark bg */
+    --text-primary: #FFECC6;    /* Pale Sand */
+    --text-secondary: #EDCDAF;  /* Sand */
+    --text-muted: #D1B89A;      /* Hazelnut */
+    --text-light: #2B1809;
+    --text-white: #FFFFFF;
+    
+    --border-color: rgba(255, 236, 198, 0.15);
+    --border-light: rgba(255, 236, 198, 0.08);
+    --border-focus: #F7AE62;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.48);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* ================= 3. GLOBAL RESET & BASE ================= */
@@ -88,7 +134,7 @@ html {
 }
 
 body {
-    font-family: var(--font-main);
+    font-family: var(--font-body);
     background-color: var(--bg-main);
     color: var(--text-primary);
     line-height: 1.6;
@@ -104,10 +150,11 @@ body {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-main);
+    font-family: var(--font-title);
     color: var(--text-primary);
     line-height: 1.3;
     font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 /* Links */
@@ -118,7 +165,7 @@ a {
 }
 
 a:hover {
-    color: var(--text-muted);
+    color: var(--accent);
 }
 
 /* Lists */
@@ -137,7 +184,7 @@ img {
 
 /* Buttons */
 button {
-    font-family: var(--font-main);
+    font-family: var(--font-body);
     border: none;
     outline: none;
     cursor: pointer;
@@ -147,296 +194,64 @@ button {
 
 /* Inputs & Form Elements */
 input, textarea, select {
-    font-family: var(--font-main);
+    font-family: var(--font-body);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
     outline: none;
+    transition: var(--transition-fast);
 }
 
-/* ================= 4. GLOBAL CONTAINER ================= */
+input:focus, textarea:focus, select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.2);
+}
+
+/* Layout Utilities */
 .container {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-/* ================= 5. TYPOGRAPHY UTILITIES ================= */
-.font-1rem { font-size: 1rem; }
-.font-1-25rem { font-size: 1.25rem; }
-.font-1-5rem { font-size: 1.5rem; }
-.font-2rem { font-size: 2rem; }
-.font-2-5rem { font-size: 2.5rem; }
-.font-3rem { font-size: 3rem; }
-.text-primary-color { color: var(--primary) !important; }
-.text-secondary-color { color: var(--secondary) !important; }
-.text-accent-color { color: var(--accent) !important; }
-.text-cream { color: var(--cream) !important; }
-.text-dark { color: var(--text-primary) !important; }
-
-/* ================= 6. UNIFIED NAVBAR ================= */
-.navbar {
-    width: 100%;
-    max-width: 100%;
-    background-color: var(--bg-navbar);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(192, 165, 135, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: var(--transition);
-    padding: 0;
-    overflow-x: clip;
-}
-
-.nav-container {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    min-height: 75px;
-    padding: 10px 28px;
-    gap: 16px;
-    box-sizing: border-box;
-}
-
-.logo {
-    justify-self: start;
+/* ================= 4. DASHBOARD & SIDEBAR LAYOUT ================= */
+.dashboard-layout,
+.dashboard {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-main);
-    font-size: 2.3rem;
-    font-weight: 700;
-    color: var(--cream);
-    text-decoration: none;
-    letter-spacing: 0.8px;
-    white-space: nowrap;
-    transition: var(--transition);
-}
-
-.logo:hover {
-    color: #FAF0E6;
-    transform: scale(1.04);
-}
-
-.nav-links {
-    justify-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    margin-bottom: 0;
-    padding-left: 0;
-}
-
-.nav-links li {
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--cream);
-    font-weight: 500;
-    font-size: 1.15rem;
+    min-height: 100vh;
+    width: 100%;
     position: relative;
-    padding: 6px 0;
-    white-space: nowrap;
-    transition: var(--transition);
+    background-color: var(--bg-main);
 }
 
-.nav-links a:hover {
-    color: #FAF0E6;
+.dashboard-layout .main-content,
+.dashboard .main-content,
+.dashboard-layout > main,
+.dashboard > main {
+    flex: 1;
+    min-width: 0;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    box-sizing: border-box;
+    padding: 24px 30px 40px;
 }
 
-.nav-links a.active {
-    color: #FAF0E6;
-    font-weight: 700;
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2.5px;
-    background-color: var(--secondary);
-    border-radius: 4px;
-}
-
-.nav-buttons {
-    justify-self: end;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.login-btn {
-    color: var(--cream) !important;
-    font-family: var(--font-main);
-    font-size: 1.2rem;
-    padding: 6px 20px;
-    border: 1.5px solid var(--accent);
-    border-radius: 20px;
-    text-decoration: none;
-    background-color: var(--primary-dark);
-    transition: var(--transition);
-    display: inline-block;
-    white-space: nowrap;
-}
-
-.login-btn:hover {
-    color: #FAF0E6 !important;
-    background-color: var(--primary);
-    border-color: var(--secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.register-btn {
-    color: var(--cream) !important;
-    font-family: var(--font-main);
-    font-size: 1.2rem;
-    padding: 6px 22px;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-    border: 1.5px solid var(--secondary);
-    border-radius: 20px;
-    text-decoration: none;
-    transition: var(--transition);
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-}
-
-.register-btn:hover {
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-    border-color: var(--cream);
-    color: #FAF0E6 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-}
-
-.theme-btn,
-.menu-btn {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid var(--accent);
-    border-radius: 10px;
-    background: var(--primary-dark);
-    color: var(--cream);
-    font-size: 1.15rem;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.theme-btn:hover,
-.menu-btn:hover {
-    background: var(--primary);
-    border-color: var(--secondary);
-    color: #FAF0E6;
-    transform: translateY(-2px);
-}
-
-.menu-btn {
-    display: none;
-}
-@media (max-width: 1050px) {
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-
-    .menu-btn {
-        display: flex;
-    }
-    
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-navbar);
+@media (max-width: 900px) {
+    .dashboard-layout,
+    .dashboard {
         flex-direction: column;
-        padding: 20px 24px;
-        gap: 16px;
-        border-bottom: 2px solid var(--primary-dark);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-    
-    .nav-links.active {
-        display: flex;
+    .dashboard-layout .main-content,
+    .dashboard .main-content,
+    .dashboard-layout > main,
+    .dashboard > main {
+        margin-left: 0;
+        width: 100%;
+        padding: 16px 18px 30px;
     }
-}
-
-@media (max-width: 576px) {
-    .logo {
-        font-size: 1.8rem;
-    }
-    .login-btn,
-    .register-btn {
-        padding: 5px 12px;
-        font-size: 1rem;
-    }
-}
-
-
-/* ================= 7. THEME TOGGLE ================= */
-.theme-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    font-family: system-ui, sans-serif;
-    font-size: 1.05rem;
-}
-
-body,
-.navbar,
-.nav-container,
-.theme-btn,
-.menu-btn,
-.card,
-.modal-content,
-input,
-textarea,
-select,
-button,
-section,
-footer {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .navbar {
-    background-color: var(--bg-navbar) !important;
-}
-
-body.dark-mode .theme-btn,
-body.dark-mode .menu-btn {
-    background: var(--primary-dark) !important;
-    color: var(--cream) !important;
-    border-color: var(--accent) !important;
-}
-
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-    background-color: #2E2018;
-    color: #F8F5F0;
-    border-color: rgba(234, 216, 192, 0.2);
-}
-
-body.dark-mode input::placeholder,
-body.dark-mode textarea::placeholder {
-    color: #BDAE9F;
-}
-
-body.dark-mode a {
-    color: inherit;
 }

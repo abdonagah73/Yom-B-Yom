@@ -135,12 +135,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             };
 
             saveBtn.disabled = true;
-            saveBtn.textContent = "Saving...";
+            saveBtn.innerHTML = '<i class="bi bi-arrow-repeat"></i> Saving...';
 
             const res = await SocialAPI.updateMyProfile(updatedData);
 
             saveBtn.disabled = false;
-            saveBtn.textContent = "Save Changes";
+            saveBtn.innerHTML = '<i class="bi bi-floppy2-fill"></i> Save All Changes';
 
             if (res.success) {
                 // Show notification / toast

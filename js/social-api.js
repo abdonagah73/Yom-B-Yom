@@ -8,11 +8,91 @@
  */
 
 const SocialAPI = (function () {
-    const STORAGE_KEY = "yombyom_community_profiles_v1";
+    const STORAGE_KEY = "yombyom_community_profiles_v2";
     const CURRENT_USER_KEY = "yombyom_current_user_profile_v1";
 
     // Initial Seed Profiles
     const DEFAULT_PROFILES = [
+        {
+            id: "user_big_ramy",
+            username: "big_ramy",
+            name: "بيج رامي (Big Ramy)",
+            avatar: "../images/big-ramy.jpg",
+            avatarText: "ر",
+            bio: "ممدوح السبيعي - بطل مستر أولمبيا مرتين 🏆🏆. فخر مصر والعرب في كمال الأجسام والتحفيز الرياضي.",
+            isPublic: true,
+            isOnline: true,
+            showcase: {
+                showHobbies: true,
+                hobbies: ["رفع الأثقال والحديد الثقيل 🏋️‍♂️", "صيد السمك 🎣", "تحفيز الرياضيين 🥇"],
+                showTasks: true,
+                tasks: ["تمرين أرجل سوبر سيت 300 كجم", "وجبة صدور دجاج وأرز رقم 4", "جلسة استشفاء عضلي"],
+                showProjects: true,
+                projects: ["أكاديمية Ramy للأبطال", "بطولة كمال أجسام للهواة"],
+                showHabits: true,
+                habits: ["تمرين مرتين يومياً (صباحي ومسائي)", "تناول 6 وجبات محسوبة السعرات", "نوم 8 ساعات بانتظام"]
+            }
+        },
+        {
+            id: "user_tamer_gayar",
+            username: "tamer_elgayar",
+            name: "تامر الجيار (Tamer El Gayar)",
+            avatar: "../images/tamer-elgayar.png",
+            avatarText: "ت",
+            bio: "نجم وصانع محتوى تيك توك الشهير ✨👟. ملك الكاريزما والأناقة والروقان والسكتشات اليومية.",
+            isPublic: true,
+            isOnline: true,
+            showcase: {
+                showHobbies: true,
+                hobbies: ["تصوير فيديوهات تيك توك 📱", "عالم الموضة والأزياء 🎽", "الجيم واللياقة البدنية 💪"],
+                showTasks: true,
+                tasks: ["تصوير تريند تيك توك جديد", "لايف الساعة 9 مع المتابعين", "تنسيق أوتفيت الأسبوع"],
+                showProjects: true,
+                projects: ["براند ملابس وكاجوال الجيار", "بودكاست الجيار شو"],
+                showHabits: true,
+                habits: ["تصوير 3 تيك توك يومياً", "تمرين حديد مسائي", "شرب 3 لتر مياه"]
+            }
+        },
+        {
+            id: "user_elshazly",
+            username: "elshazly_tiktok",
+            name: "الشاذلي (El Shazly)",
+            avatar: "../images/el-shazly.jpg",
+            avatarText: "ش",
+            bio: "صاحبي اللي خاني وباعني عشان بصلة 🧅! نجم التيك توك وصاحب أشهر إفيهات وتريندات كوميدية.",
+            isPublic: true,
+            isOnline: true,
+            showcase: {
+                showHobbies: true,
+                hobbies: ["تقشير وتقطيع البصل 🧅", "تسجيل إفيهات وسكتشات 🎬", "متابعة تريندات السوشيال 📈"],
+                showTasks: true,
+                tasks: ["تصوير كليب البصلة الجديد", "مقابلة صاحبي اللي خاني", "شراء شوال بصل أحمر جديد"],
+                showProjects: true,
+                projects: ["سلسلة سكتشات خيانة الصحاب", "برنامج الشاذلي في السوق"],
+                showHabits: true,
+                habits: ["تقطيع 5 كيلو بصل بدون دموع", "تسجيل سكتش يومي", "كوباية شاي كشري في الخمسينة"]
+            }
+        },
+        {
+            id: "user_beso_blaban",
+            username: "beso_blaban",
+            name: "بيسو بتاع بلبن (Beso B.Laban)",
+            avatar: "../images/beso-blaban.png",
+            avatarText: "ب",
+            bio: "قلبظ يا عم قلبظ 🍨🥛! نجم حلويات B.Laban وصانع البهجة، القشطوطة، الكشري الحلو والمسحب المسكر.",
+            isPublic: true,
+            isOnline: true,
+            showcase: {
+                showHobbies: true,
+                hobbies: ["ابتكار حلويات وقشطة ومكسرات 🍧", "تذوق اللوتس والفسدق 🥜", "صناعة البهجة والفرحة 🌟"],
+                showTasks: true,
+                tasks: ["تحضير 50 صينية قشطوطة مانجا", "تصوير فيديو قلبظ يا عم قلبظ", "تجهيز صوص بستاشيو إضافي"],
+                showProjects: true,
+                projects: ["افتتاح فرع بلبن الجديد", "ابتكار طبق حلو الصيف 2026"],
+                showHabits: true,
+                habits: ["تذوق الحلاوة يومياً", "رش مكسرات بسخاء", "ابتسامة وطاقة إيجابية دائمة"]
+            }
+        },
         {
             id: "user_will",
             username: "will_smith",
@@ -181,15 +261,27 @@ const SocialAPI = (function () {
             const data = localStorage.getItem(STORAGE_KEY);
             if (data) {
                 let profiles = JSON.parse(data);
-                let hasLegacy = false;
+                let updated = false;
+
+                // Merge in any missing default profiles at top
+                DEFAULT_PROFILES.forEach(dp => {
+                    const exists = profiles.some(p => p.id === dp.id);
+                    if (!exists) {
+                        profiles.push(dp);
+                        updated = true;
+                    }
+                });
+
+                // Fix legacy sarah
                 profiles = profiles.map(p => {
                     if (p.id === "user_sarah" || (p.avatar && p.avatar.includes("will-smith.jpg") && p.name !== "Will Smith")) {
-                        hasLegacy = true;
-                        return DEFAULT_PROFILES[0];
+                        updated = true;
+                        return DEFAULT_PROFILES.find(x => x.id === "user_will") || p;
                     }
                     return p;
                 });
-                if (hasLegacy) {
+
+                if (updated) {
                     saveStoredProfiles(profiles);
                 }
                 return profiles;

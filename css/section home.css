@@ -3,14 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     min-height: 100vh;
-    max-height: 100vh;
-    padding: 76px 20px 12px;
+    padding: 95px 20px 40px;
     text-align: center;
     position: relative;
-    overflow: hidden;
     box-sizing: border-box;
     background: radial-gradient(circle at 50% 20%, var(--swatch-pale-sand) 0%, var(--bg-hero) 100%);
     transition: background 0.3s ease;
@@ -24,7 +22,7 @@ body.dark-mode #hero {
     width: 100%;
     max-width: 960px;
     padding: 0 15px;
-    margin: 0 auto 4px;
+    margin: 0 auto 10px;
     text-align: center;
     z-index: 2;
     flex-shrink: 0;
@@ -48,7 +46,7 @@ body.dark-mode #hero {
 }
 
 .hero-content p {
-    margin-top: 6px;
+    margin-top: 8px;
     margin-bottom: 0;
 }
 
@@ -84,33 +82,28 @@ body.dark-mode #signInBtn {
     transform: translateY(0) scale(1.01);
 }
 
-/* Big, Full Hero Image Fitting Laptop Viewport without Scroll */
+/* Full Hero Image Displayed Completely without Crop */
 .hero-img-wrapper {
     width: 100%;
-    max-width: 1200px;
-    flex: 1;
-    min-height: 0;
-    max-height: calc(100vh - 200px);
-    margin: 4px auto 0;
+    max-width: 1100px;
+    margin: 20px auto 0;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 16px;
     background: transparent;
-    overflow: hidden;
 }
 
 .hero-img-wrapper img {
-    max-height: 100%;
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 16px;
     display: block;
     box-shadow: 0 10px 28px rgba(61, 45, 19, 0.16);
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 body.dark-mode .hero-img-wrapper img {
@@ -118,7 +111,7 @@ body.dark-mode .hero-img-wrapper img {
 }
 
 .hero-img-wrapper:hover img {
-    transform: scale(1.01);
+    transform: translateY(-2px);
 }
 
 /* ================= SECTION 2: SERVICE & DAILY MOTIVATION (No Box / Clean Floating Content) ================= */
@@ -220,12 +213,13 @@ body.dark-mode .hero-img-wrapper img {
     }
 
     .hero-img-wrapper {
-        max-height: none;
+        margin-top: 15px;
     }
 
     .hero-img-wrapper img {
-        max-height: 380px;
         width: 100%;
+        height: auto;
+        max-height: none;
     }
 
     .hero-content h1 {

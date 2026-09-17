@@ -14,23 +14,23 @@ const SocialAPI = (function () {
     // Initial Seed Profiles
     const DEFAULT_PROFILES = [
         {
-            id: "user_sarah",
-            username: "sarah_c",
-            name: "Sarah Connor",
+            id: "user_will",
+            username: "will_smith",
+            name: "Will Smith",
             avatar: "../images/will-smith.jpg",
-            avatarText: "S",
-            bio: "Passionate about mindfulness, UX design, and morning runs. Building daily consistency!",
+            avatarText: "W",
+            bio: "Actor, producer & musician. Focused on discipline, physical fitness, and daily consistency!",
             isPublic: true,
             isOnline: true,
             showcase: {
                 showHobbies: true,
-                hobbies: ["Photography 📷", "Trail Running 🏃‍♀️", "Specialty Coffee ☕"],
+                hobbies: ["Running 🏃‍♂️", "Filmmaking 🎬", "Chess ♟️"],
                 showTasks: true,
-                tasks: ["Redesign User Profile Flow", "Weekly Meal Prep", "Review Dashboard Analytics"],
+                tasks: ["Morning Fitness Routine", "Read 30 Min Daily", "Script Analysis & Prep"],
                 showProjects: true,
-                projects: ["Mindful Living Blog", "Plant Care Tracker"],
+                projects: ["Creative Storytelling Workshop", "Clean Energy Initiative"],
                 showHabits: true,
-                habits: ["Morning Meditation (18d streak)", "Read 25 Pages Daily", "No Screen After 10PM"]
+                habits: ["5 AM Cardio (28d streak)", "Daily Journaling", "Hydrate 3L"]
             }
         },
         {
@@ -180,7 +180,19 @@ const SocialAPI = (function () {
         try {
             const data = localStorage.getItem(STORAGE_KEY);
             if (data) {
-                return JSON.parse(data);
+                let profiles = JSON.parse(data);
+                let hasLegacy = false;
+                profiles = profiles.map(p => {
+                    if (p.id === "user_sarah" || (p.avatar && p.avatar.includes("will-smith.jpg") && p.name !== "Will Smith")) {
+                        hasLegacy = true;
+                        return DEFAULT_PROFILES[0];
+                    }
+                    return p;
+                });
+                if (hasLegacy) {
+                    saveStoredProfiles(profiles);
+                }
+                return profiles;
             }
         } catch (e) {
             console.error("Error reading community profiles:", e);

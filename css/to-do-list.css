@@ -1,11 +1,11 @@
 /* =========================================================
    YOM-B-YOM TO DO LIST DASHBOARD STYLESHEET
-   - Unified Typography (Chewy & Poppins / Nunito matching Index)
+   - Unified Typography (Space Grotesk matching Index)
    - Warm Coffee, Caramel & Cream Palette
    - Clean Sidebar, Pomodoro Timer, Progress & Tasks
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
     --brown-950: #2B1809;
@@ -39,7 +39,7 @@
     --radius: 22px;
 
     /* Unified Website Typography */
-    --font-title: "Chewy", "Space Grotesk", cursive, sans-serif;
+    --font-title: "Space Grotesk", sans-serif;
     --font-body: "Space Grotesk", sans-serif;
 }
 

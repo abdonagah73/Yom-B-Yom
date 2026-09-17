@@ -19,7 +19,7 @@
   --cal-accent-warm: var(--accent, #B87333);
   --cal-circle-default: #EDCDAF;
   
-  --cal-font-title: 'Chewy', 'Space Grotesk', cursive, sans-serif;
+  --cal-font-title: 'Space Grotesk', sans-serif;
   --cal-font-serif: 'Space Grotesk', sans-serif;
   --cal-font-body: 'Space Grotesk', sans-serif;
 }

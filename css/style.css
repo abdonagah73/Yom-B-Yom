@@ -3,12 +3,12 @@
    - Unified Brown Color Palette (Swatches: Pale Sand, Sand, Hazelnut,
      Sable, Chamois, Maple, Camel, Café Au Lait, Taupe, Amber Brown,
      Copper, Mocha, Mahogany, Cocoa, Umber)
-   - Typography: Space Grotesk & Chewy
+   - Typography: Space Grotesk
    - Enhanced Light & Dark Mode
    - Global Resets & Base Styles
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* ================= 1. GLOBAL DESIGN TOKENS ================= */
 :root {
@@ -54,7 +54,7 @@
     /* Typography & High-Contrast Text */
     --font-main: "Space Grotesk", sans-serif;
     --font-body: "Space Grotesk", sans-serif;
-    --font-title: "Chewy", "Space Grotesk", sans-serif;
+    --font-title: "Space Grotesk", sans-serif;
     
     --text-primary: #2B1809;    /* Deep Umber - crisp high contrast on light bg */
     --text-secondary: #482B14;  /* Rich Mocha */
